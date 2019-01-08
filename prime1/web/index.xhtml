@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+                <style>
+
+                </style>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <p:panel>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <f:facet name="header">
+                            <h:outputLabel value="Data Display"></h:outputLabel>
+                        </f:facet>
+                        <p:outputLabel value="Age"></p:outputLabel>
+                        <p:spinner/>
+
+                        <p:outputLabel value="Date"></p:outputLabel>
+                        <p:calendar pagedate="date"   ></p:calendar>
+
+                        <p:outputLabel value="Click"></p:outputLabel>
+                        <p:commandButton value="submit" />
+                    </h:panelGrid>
+
+                    <p:inputMask  value="#{inputMarkcBean.mobaileNo}"mask="(999) 9999-9999999" placeHolder="X"/>
+                    <p:commandButton action="#{inputMarkcBean.save()}"  value="Send"/>
+                    
+                </h:form>
+            </p:panel>
+
+        </h:body>
+
+    </f:view>
+</html>
+

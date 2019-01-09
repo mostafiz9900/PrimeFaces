@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+               <f:view>
+            <h:form>
+                <h:panelGrid columns="2">
+                <p:outputLabel for="date" value="Date"></p:outputLabel>
+                <p:inputMask id="date" value="#{inputMask.date}" mask="99/99/9999"></p:inputMask>
+                
+                <p:outputLabel for="phone" value="Phone"></p:outputLabel>
+                <p:inputMask id="phone" value="#{inputMask.phoneNumber}" mask="(999)999-999999"></p:inputMask>
+                
+                <p:outputLabel for="texId" value="tex Id"></p:outputLabel>
+                <p:inputMask id="texId" value="#{inputMask.texId}" mask="99-999999"></p:inputMask>
+                
+                 <p:outputLabel for="productKey" value="Product Key"></p:outputLabel>
+                 <p:inputMask id="productKey" value="#{inputMask.prodectKey}" mask="a*-99-a999"></p:inputMask>
+                 
+                 <p:commandButton type="reset" value="Reset"></p:commandButton>
+                 <p:commandButton action="#{inputMask.save()}" value="Save"></p:commandButton>
+                 </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

@@ -1,0 +1,9 @@
+public PieChartModel getLivePieModel() {
+	int random1 = (int)(Math.random() * 1000);
+	int random2 = (int)(Math.random() * 1000);
+
+	liveChartModel.getData().put("Candidate 1", random1);
+	liveChartModel.getData().put("Candidate 2", random2);
+
+	return liveChartModel;
+}

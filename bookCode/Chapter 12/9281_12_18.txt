@@ -1,0 +1,39 @@
+@ManagedBean
+@ViewScoped
+public class TimelineController implements Serializable {
+
+    private List<Timeline> timelines;
+
+    private String eventStyle = "dot";
+    private String axisPosition = "bottom";
+
+    @PostConstruct
+    public void initialize() {
+        timelines = new ArrayList<Timeline>();
+
+        Calendar cal = Calendar.getInstance();
+        Timeline timeline = new DefaultTimeLine("prh", "Primefaces Release History");
+        cal.set(2011, Calendar.MARCH, 10);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces-Extensions 0.1", cal.getTime()));
+        cal.set(2012, Calendar.JANUARY, 23);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces-Extensions 0.2.0", cal.getTime()));
+        cal.set(2012, Calendar.FEBRUARY, 2);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces Extensions 0.3.0", cal.getTime()));
+        cal.set(2012, Calendar.FEBRUARY, 16);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces-Extensions 0.4.0", cal.getTime()));
+        cal.set(2012, Calendar.APRIL, 10);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces-Extensions 0.5.0", cal.getTime()));
+        cal.set(2012, Calendar.APRIL, 19);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces-Extensions 0.5.1", cal.getTime()));
+        cal.set(2012, Calendar.JULY, 26);
+        timeline.addEvent(new DefaultTimelineEvent("Primefaces-Extensions 0.6.0", cal.getTime()));
+        timelines.add(timeline);
+    }
+
+    public List<Timeline> getTimelines() {
+        return timelines;
+    }
+
+    // getter / setter
+    ...
+}

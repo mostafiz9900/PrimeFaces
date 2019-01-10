@@ -1,0 +1,1 @@
+<p:calendar id="timeCalendar" value="#{calendarController.date}" pattern="dd/MM/yyyy HH:mm:ss"/>

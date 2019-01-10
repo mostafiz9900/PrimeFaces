@@ -1,0 +1,8 @@
+MapModel polylineModel = new DefaultMapModel();
+
+Polyline polyline = new Polyline();
+polyline.getPaths().add(new LatLng(41.073399, 29.051971));
+polyline.getPaths().add(new LatLng(41.118418, 29.134026));
+polyline.getPaths().add(new LatLng(41.027807, 29.049973));
+
+polylineModel.addOverlay(polyline);

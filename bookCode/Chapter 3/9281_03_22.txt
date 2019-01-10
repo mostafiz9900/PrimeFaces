@@ -1,0 +1,1 @@
+<p:calendar id="paging" value="#{calendarController.date}" pages="3" mode="inline" />

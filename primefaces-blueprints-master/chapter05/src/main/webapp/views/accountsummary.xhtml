@@ -1,0 +1,217 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterTemplate.xhtml">
+	<ui:define name="content">
+		<h:form id="accountform">
+
+			<p:contextMenu for="accountsummary">
+				<p:menuitem value="Investment Summary" icon="ui-icon-search"
+					action="#{accountSummaryController.storeSelectedAccount}"
+					ajax="false" />
+			</p:contextMenu>
+
+			<p:dataTable id="accountsummary" var="account"
+				value="#{accountSummaryController.accountsInfo}" paginator="true"
+				rows="5" paginatorPosition="bottom"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" rowKey="#{account.id}"
+				selection="#{accountSummaryController.accountObj}"
+				selectionMode="single">
+				<f:facet name="header">
+                  Account Summary
+                 <p:commandButton id="toggler" type="button"
+						value="Columns" style="float:right" icon="ui-icon-calculator" />
+					<p:columnToggler datasource="accountsummary" trigger="toggler" />
+					<div style="clear: both" />
+				</f:facet>
+
+				<p:column sortBy="investorName" filterBy="investorName"
+					toggleable="false" id="investorName">
+					<f:facet name="header">
+						<h:outputText value="Investor Name" />
+					</f:facet>
+					<h:outputText value="#{account.investorName}" />
+				</p:column>
+
+				<p:column sortBy="registeredAccholderName"
+					filterBy="registeredAccholderName" toggleable="false"
+					id="registeredAccholderName">
+					<f:facet name="header">
+						<h:outputText value="Accountholder Name" />
+					</f:facet>
+					<h:outputText value="#{account.registeredAccholderName}" />
+				</p:column>
+
+				<p:column sortBy="accountNumber" filterBy="accountNumber"
+					toggleable="false" id="accountNumber">
+					<f:facet name="header">
+						<h:outputText value="Account Number" />
+					</f:facet>
+					<h:outputText value="#{account.accountNumber}" />
+				</p:column>
+
+				<p:column sortBy="accountType" filterBy="accountType"
+					toggleable="false" id="accountType">
+					<f:facet name="header">
+						<h:outputText value="Account Type" />
+					</f:facet>
+					<h:outputText value="#{account.accountType}" />
+				</p:column>
+
+				<p:column sortBy="status" filterBy="status" id="status"
+					toggleable="false">
+					<f:facet name="header">
+						<h:outputText value="Status" />
+					</f:facet>
+					<h:outputText value="#{account.status}" />
+				</p:column>
+
+				<p:column sortBy="registrationDate" id="registrationDate">
+					<f:facet name="header">
+						<h:outputText value="Registration Date" />
+					</f:facet>
+					<h:outputText value="#{account.registrationDate}" />
+				</p:column>
+
+				<p:column sortBy="openDate" id="openDate">
+					<f:facet name="header">
+						<h:outputText value="Open Date" />
+					</f:facet>
+					<h:outputText value="#{account.openDate}" />
+				</p:column>
+
+				<p:column sortBy="closeDate" id="closeDate">
+					<f:facet name="header">
+						<h:outputText value="Close Date" />
+					</f:facet>
+					<h:outputText value="#{account.closeDate}" />
+				</p:column>
+
+				<p:column sortBy="jointAccount" id="jointAccount">
+					<f:facet name="header">
+						<h:outputText value="Joint Account" />
+					</f:facet>
+					<h:outputText value="#{account.jointAccount}" />
+				</p:column>
+
+				<p:column sortBy="balanceUS" id="balanceUS" toggleable="false">
+					<f:facet name="header">
+						<h:outputText value="Balance US" />
+					</f:facet>
+					<h:outputText value="#{account.balanceUS}" />
+				</p:column>
+
+				<p:column sortBy="balanceUK" id="balanceUK" toggleable="false">
+					<f:facet name="header">
+						<h:outputText value="Balance UK" />
+					</f:facet>
+					<h:outputText value="#{account.balanceUK}" />
+				</p:column>
+			</p:dataTable>
+
+			<p:panel header="Export Accounts Data">
+				<h:commandLink>
+					<p:graphicImage value="/images/excel.png" />
+					<p:dataExporter type="xls" target="accountsummary"
+						postProcessor="#{accountSummaryController.postProcessXLS}"
+						fileName="AccountSummary" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage value="/images/pdf.png" />
+					<p:dataExporter type="pdf" target="accountsummary"
+						preProcessor="#{accountSummaryController.preProcessPDF}"
+						postProcessor="#{accountSummaryController.postProcessPDF}"
+						fileName="AccountSummary" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage value="/images/csv.png" />
+					<p:dataExporter type="csv" target="accountsummary"
+						fileName="AccountSummary" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage value="/images/xml.png" />
+					<p:dataExporter type="xml" target="accountsummary"
+						fileName="AccountSummary" />
+				</h:commandLink>
+			</p:panel>
+			<p:panel header="AccountSummary Charts" id="accsummarycharts">
+				<h:panelGrid columns="3">
+					<h:panelGrid columns="2" style="margin-left:150px"
+						rendered="#{accountSummaryController.pieChartFlag}">
+						<p:chart type="pie" id="pieUS" widgetVar="$pieUS"
+							model="#{accountSummaryController.pieModelUS}"
+							style="width:400px;height:300px" />
+						<p:chart type="pie" id="pieUK" widgetVar="$pieUK"
+							model="#{accountSummaryController.pieModelUK}"
+							style="width:400px;height:300px" />
+					</h:panelGrid>
+					<h:panelGrid columns="2" style="margin-left:150px"
+						rendered="#{!accountSummaryController.pieChartFlag}">
+						<p:chart type="bar" id="barChart" widgetVar="$barChart"
+							model="#{accountSummaryController.categoryModel}"
+							style="width:400px;height:300px" />
+						<p:spacer width="400" height="300"></p:spacer>
+					</h:panelGrid>
+					<p:spacer width="50"></p:spacer>
+					<p:outputPanel style="margin-top: -100px">
+						<h:outputText value="Select chart type " />
+						<p:selectOneMenu value="#{accountSummaryController.type}">
+							<p:ajax event="change"
+								listener="#{accountSummaryController.changeOption}"
+								update="accsummarycharts"></p:ajax>
+							<f:selectItem itemLabel="Pie Chart" itemValue="1" />
+							<f:selectItem itemLabel="Bar Chart" itemValue="2" />
+						</p:selectOneMenu>
+					</p:outputPanel>
+				</h:panelGrid>
+				<p:outputPanel rendered="#{accountSummaryController.pieChartFlag}">
+					<p:commandButton value="ExportUSreport " icon="ui-icon-extlink"
+						ajax="false" onclick="exportPieChart()"
+						actionListener="#{accountSummaryController.piechartUSBase64Str}">
+						<p:fileDownload value="#{accountSummaryController.file1}" />
+					</p:commandButton>
+					<p:commandButton value="ExportUKreport " icon="ui-icon-extlink"
+						ajax="false" onclick="exportPieChart()"
+						actionListener="#{accountSummaryController.piechartUKBase64Str}">
+						<p:fileDownload value="#{accountSummaryController.file2}" />
+					</p:commandButton>
+				</p:outputPanel>
+				<p:outputPanel rendered="#{!accountSummaryController.pieChartFlag}">
+					<p:commandButton value="ExportBarChart" icon="ui-icon-extlink"
+						ajax="false" onclick="exportBarChart()"
+						actionListener="#{accountSummaryController.barchartBase64Str}">
+						<p:fileDownload value="#{accountSummaryController.file3}" />
+					</p:commandButton>
+				</p:outputPanel>
+			</p:panel>
+
+			<h:inputHidden id="pie1"
+				value="#{accountSummaryController.base64Str1}" />
+			<h:inputHidden id="pie2"
+				value="#{accountSummaryController.base64Str2}" />
+			<h:inputHidden id="bar"
+				value="#{accountSummaryController.base64Str3}" />
+
+			<script>
+				function exportPieChart() {
+					// exportAsImage() will return a base64 png encoded string
+					var img1 = PF('$pieUS').exportAsImage();
+					var img2 = PF('$pieUK').exportAsImage();
+					document.getElementById('accountform:pie1').value = img1.src;
+					document.getElementById('accountform:pie2').value = img2.src;
+				}
+				function exportBarChart() {
+					// exportAsImage() will return a base64 png encoded string
+					var img1 = PF('$barChart').exportAsImage();
+					document.getElementById('accountform:bar').value = img1.src;
+				}
+			</script>
+		</h:form>
+	</ui:define>
+</ui:composition>

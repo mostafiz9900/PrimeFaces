@@ -1,0 +1,3 @@
+<p:inplace label="My Input Field">
+	<h:inputText value="Edit Me!" />
+</p:inplace>

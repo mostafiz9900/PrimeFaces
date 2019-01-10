@@ -1,0 +1,2 @@
+public static void addInfoMessage(String str) {
+    FacesContext context = FacesContext.getCurrentInstance();    ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msg");    String message = bundle.getString(str);    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, ""));}

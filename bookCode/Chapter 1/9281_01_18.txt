@@ -1,0 +1,1 @@
+booleanButton.onLabel=YesbooleanButton.offLabel=No

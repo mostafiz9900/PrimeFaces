@@ -1,0 +1,1 @@
+public String addMessage() {    addInfoMessage("broadcast.message");    return null;}

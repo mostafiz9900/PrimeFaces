@@ -1,0 +1,8 @@
+<p:tree id="customNodes" value="#{treeDataController.rootWithType}" var="node">
+	<p:treeNode type="node"  icon="ui-icon-plusthick">
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+	<p:treeNode type="leaf"  icon="ui-icon-minusthick">
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+</p:tree>

@@ -1,0 +1,6 @@
+StreamedContent graphicText
+
+public String cropSimple() throws IOException {
+	graphicText = new DefaultStreamedContent(new ByteArrayInputStream(croppedImage.getBytes()));
+	return null;
+}

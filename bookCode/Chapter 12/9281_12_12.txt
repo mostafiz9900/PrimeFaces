@@ -1,0 +1,31 @@
+@ManagedBean
+@ViewScoped
+public class CodeMirrorController implements Serializable {
+
+    private String content;
+    private String mode = "javascript";
+
+    public CodeMirrorController() {
+        content = "function test() { console.log('test'); }";
+    }
+
+    public void changeMode() {
+        if (mode.equals("css")) {
+            mode = "javascript";
+        } else {
+            mode = "css";
+        }
+    }
+
+    public List<String> complete(String token, String context) {
+        ArrayList<String> suggestions = new ArrayList<String>();
+
+        suggestions.add("context: " + context);
+        suggestions.add("token: " + token);
+
+        return suggestions;
+    }
+
+    // getter / setter for content and mode
+    ...
+}

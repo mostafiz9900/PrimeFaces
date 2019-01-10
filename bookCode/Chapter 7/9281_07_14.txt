@@ -1,0 +1,4 @@
+<h:commandLink onclick="PrimeFaces.monitorDownload(showStatus, hideStatus)">
+	<p:graphicImage value="/resources/images/download/fileDownload.png" />
+	<p:fileDownload value="#{fileController.downloadFile}" />
+</h:commandLink>

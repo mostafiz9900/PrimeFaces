@@ -1,0 +1,20 @@
+<p:growl id="growl" showDetail="true"/>
+
+<h:graphicImage id="myImage" value="/resources/images/pfext-logo.png"/>
+
+<pe:imageRotateAndResize id="rotateAndResize" for="myImage"
+                         widgetVar="rotateAndResizeWidget">
+    <p:ajax event="rotate" listener="#{imageController.rotateListener}"
+            update="growl"/>
+    <p:ajax event="resize" listener="#{imageController.resizeListener}"
+            update="growl"/>
+</pe:imageRotateAndResize>
+
+<p:commandButton type="button" icon="ui-icon-arrowreturnthick-1-w" value="Rotate -90"
+                 onclick="rotateAndResizeWidget.rotateLeft(90)"/>
+<p:commandButton type="button" icon="ui-icon-arrowreturnthick-1-e" value="Rotate +90"
+                 onclick="rotateAndResizeWidget.rotateRight(90)"/>
+<p:commandButton type="button" icon="ui-icon-zoomin" value="Scale +1.05"
+                 onclick="rotateAndResizeWidget.scale(1.05)"/>
+<p:commandButton type="button" icon="ui-icon-zoomout" value="Scale -0.95"
+                 onclick="rotateAndResizeWidget.scale(0.95)"/>

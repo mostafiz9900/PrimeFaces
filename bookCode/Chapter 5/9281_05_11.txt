@@ -1,0 +1,7 @@
+public void onEdit(RowEditEvent event) {
+	MessageUtil.addInfoMessage("car.edit", ((Car) event.getObject()).getName());
+}
+
+public void onCancel(RowEditEvent event) {
+	MessageUtil.addInfoMessage("car.edit.cancelled", ((Car) event.getObject()).getName());
+}

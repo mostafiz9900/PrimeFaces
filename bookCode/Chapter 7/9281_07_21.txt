@@ -1,0 +1,6 @@
+<p:galleria>
+	<p:graphicImage value="/resources/images/autocomplete/CC.png" />
+	<p:graphicImage value="/resources/images/autocomplete/Golf.png" />
+	<p:graphicImage value="/resources/images/autocomplete/Polo.png" />
+	<p:graphicImage value="/resources/images/autocomplete/Touareg.png" />
+</p:galleria>

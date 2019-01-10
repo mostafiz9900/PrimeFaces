@@ -1,0 +1,4 @@
+<p:themeSwitcher style="width:165px" effect="fade">
+    <f:selectItem itemLabel="Choose Theme" itemValue=""/>
+    <f:selectItems value="#{userSettingsController.themes}"/>
+</p:themeSwitcher>

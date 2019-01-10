@@ -1,0 +1,12 @@
+<p:tree id="withContextMenu" value="#{treeDataController.rootWithType}" var="node"
+		selectionMode="single"
+		selection="#{treeDataController.selectedNode}">
+
+	<p:treeNode type="node">
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+
+	<p:treeNode type="leaf">
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+</p:tree>

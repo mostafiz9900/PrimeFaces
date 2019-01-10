@@ -1,0 +1,5 @@
+public class ItemSelectEvent extends AjaxBehaviorEvent {
+	private int itemIndex;
+	private int seriesIndex;
+	...
+}

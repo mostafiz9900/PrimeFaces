@@ -1,0 +1,4 @@
+public void addMessage() {
+    String summaryKey = selectedValue ? " checkbox.checked" : " checkbox.unchecked";
+    MessageUtil.addInfoMessage(summaryKey);
+}

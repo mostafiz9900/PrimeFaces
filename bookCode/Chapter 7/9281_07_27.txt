@@ -1,0 +1,14 @@
+public void onCaptureWithSave(CaptureEvent captureEvent) {
+	byte[] data = captureEvent.getData();
+	ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+	String newFileName = servletContext.getRealPath("") + File.separator + "resources" + File.separator + "images" + File.separator + "captured.png";
+	FileImageOutputStream imageOutput;
+	try {
+		imageOutput = new FileImageOutputStream(new File(newFileName));
+		imageOutput.write(data, 0, data.length);
+		imageOutput.close();
+	}
+	catch(Exception e) {
+		throw new FacesException("Error in writing captured image.", e);
+	}
+}

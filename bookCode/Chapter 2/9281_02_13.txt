@@ -1,0 +1,4 @@
+#customInputStyles .ui-inputfield.ui-state-default {
+    background: none;
+    border: 2px inset;
+}

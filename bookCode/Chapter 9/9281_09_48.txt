@@ -1,0 +1,4 @@
+public void onMarkerSelect(OverlaySelectEvent event) {
+	Marker selectedMarker = (Marker) event.getOverlay();
+	MessageUtil.addInfoMessageWithoutKey(selectedMarker.getTitle(), selectedMarker.getLatlng().toString());
+}

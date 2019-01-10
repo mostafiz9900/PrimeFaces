@@ -1,0 +1,6 @@
+<p:carousel id="simple" value="#{carouselController.cars}" var="car" headerText="Cars">
+	<h:panelGrid columns="1">
+		<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" width="100" height="70"/>
+		<h:outputText value="#{car.name}" />
+	</h:panelGrid>
+</p:carousel>

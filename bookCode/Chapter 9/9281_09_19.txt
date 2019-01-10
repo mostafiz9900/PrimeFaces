@@ -1,0 +1,7 @@
+BubbleChartModel model = new BubbleChartModel();
+
+model.add(new BubbleChartSeries("California", 3576, 170506, 4455));
+model.add(new BubbleChartSeries("Texas", 3248, 296259, 1710));
+model.add(new BubbleChartSeries("Florida", 2496,114422, 3104));
+model.add(new BubbleChartSeries("New York", 1422, 112347, 2885));
+model.add(new BubbleChartSeries("Georgia", 1403, 151746, 2179));

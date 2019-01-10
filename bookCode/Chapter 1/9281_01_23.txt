@@ -1,0 +1,1 @@
+project --projectName primefaces-cookbook-roo --topLevelPackage org.primefaces.cookbook

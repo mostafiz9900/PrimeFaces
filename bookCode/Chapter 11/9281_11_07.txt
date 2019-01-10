@@ -1,0 +1,29 @@
+{
+    "panes": {
+        "resizeWhileDragging": true, 
+        "slidable": false, 
+        "spacing": 6
+    },
+    "north": {
+        "closable": false, 
+        "resizable": false, 
+        "size": 60
+    },
+
+    ...
+
+    "east": {
+        "minSize": 180, 
+        "maxSize": 650, 
+        "size": 448, 
+        "childOptions": {
+            "south": {
+                "minSize": 60, 
+                "size": "70%"
+            }, 
+           "center": {
+               "minHeight": 60
+           }
+        }
+    }
+}

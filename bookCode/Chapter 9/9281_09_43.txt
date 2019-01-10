@@ -1,0 +1,4 @@
+MapModel markerModel = new DefaultMapModel();
+
+markerModel.addOverlay(new Marker(new LatLng(41.073399, 29.051971), "Bosphorus"));
+markerModel.addOverlay(new Marker(new LatLng(41.118418, 29.134026), "Bosphorus"));

@@ -1,0 +1,5 @@
+<p:dataTable id="coloring" var="car" value="#{dataTableController.cars}"
+			 rowStyleClass="#{car.year le 1975 ? 'colored' : null}">
+	<p:column headerText="Year">#{car.year}</p:column>
+	<p:column headerText="Name">#{car.name}</p:column>
+</p:dataTable>

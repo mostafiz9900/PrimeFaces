@@ -1,0 +1,4 @@
+<h:commandLink>
+	<p:graphicImage value="/resources/images/export/pdf.png" />
+	<p:dataExporter type="pdf" target="countriesTable" fileName="countries" />
+</h:commandLink>

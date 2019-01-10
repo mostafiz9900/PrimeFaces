@@ -1,0 +1,9 @@
+<configuration>
+    ...
+	<systemProperties>
+		<systemProperty>
+			<name>org.mortbay.jetty.Request.maxFormContentSize</name>
+			<value>-1</value>
+		</systemProperty>
+	</systemProperties>
+</configuration>

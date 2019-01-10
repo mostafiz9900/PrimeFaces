@@ -1,0 +1,4 @@
+<p:spinner id=”ajaxSpinner” value="#{spinnerController.intValue2}" >
+	<p:ajax update="output" process="@this" />
+</p:spinner>
+<h:outputText id="output" value="#{spinnerController.intValue2}" />

@@ -1,0 +1,2 @@
+<p:orderList id="simple" value="#{orderListController.countries}" 
+	 var="country" itemLabel="#{country}" itemValue="#{country}" />

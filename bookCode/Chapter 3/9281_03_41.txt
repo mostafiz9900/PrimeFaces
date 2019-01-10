@@ -1,0 +1,5 @@
+<h:inputText id="ajaxSliderInput" value="#{sliderController.intValue}" />
+
+<p:slider id=”ajaxSlider” for="ajaxSliderInput">
+	<p:ajax event="slideEnd" listener="#{sliderController.onSlideEnd}" update="growl" />
+</p:slider>

@@ -1,0 +1,11 @@
+<p:autoComplete id="carPOJO" 
+     value="#{autoCompleteController.selectedCar}"  
+     completeMethod="#{autoCompleteController.completeCar}"
+	  var="car" itemLabel="#{car.name}" itemValue="#{car}"
+     forceSelection="true">
+  <f:converter converterId="org.primefaces.cookbook.converter.CarConverter" />
+	<p:column>
+		<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png"/>
+	</p:column>
+	<p:column>#{car.name}</p:column>
+</p:autoComplete>

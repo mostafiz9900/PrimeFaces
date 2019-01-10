@@ -1,0 +1,11 @@
+<span id="form:popupCal">
+    <input id="form:popupCal_input" name="form:popupCal_input" type="text"
+                   class="ui-inputfield ui-widget ui-state-default ui-corner-all" />
+</span>
+
+<script id="form:popupCal_s" type="text/javascript">
+    $(function(){
+        PrimeFaces.cw('Calendar','widget_form_popupCal',
+                                      {id:'form:popupCal',popup:true,locale:'en_US',dateFormat:'m/d/y'});
+    });
+</script>

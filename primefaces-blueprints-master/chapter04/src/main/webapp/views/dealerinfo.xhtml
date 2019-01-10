@@ -1,0 +1,124 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterTemplate.xhtml">
+	<ui:define name="content">
+		<h:form id="dealerform">
+
+			<p:contextMenu for="dealerinfo">
+				<p:menuitem value="View Representatives List"
+					action="#{dealerController.storeSelectedAdvisor}" ajax="false"
+					icon="ui-icon-search" />
+			</p:contextMenu>
+
+			<p:dataTable id="dealerinfo" widgetVar="$dealerinfo" var="advisor"
+				value="#{dealerController.dealerInfo}" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" paginatorPosition="bottom"
+				rowKey="#{advisor.advisornumber}"
+				selection="#{dealerController.advisorobj}" selectionMode="single">
+				
+				<f:facet name="header">
+           		 Dealer Information-List of Advisors
+        		</f:facet>
+				<p:column style="width:2%">
+					<p:rowToggler />
+				</p:column>
+				<p:column id="dealernumber" sortBy="#{advisor.dealernumber}"
+					filterBy="#{advisor.dealernumber}" >
+					<f:facet name="header">
+						<h:outputText value="Dealer Number" />
+					</f:facet>
+					<h:outputText value="#{advisor.dealernumber}" />
+				</p:column>
+
+
+				<p:column id="advisorname" sortBy="#{advisor.advisorname}"
+					filterBy="#{advisor.advisorname}" >
+					<f:facet name="header">
+						<h:outputText value="Advisor Name" />
+					</f:facet>
+					<h:outputText value="#{advisor.advisorname}" />
+				</p:column>
+
+				<p:column id="advisornumber" sortBy="#{advisor.advisornumber}"
+					filterBy="#{advisor.advisornumber}" >
+					<f:facet name="header">
+						<h:outputText value="Advisor Number" />
+					</f:facet>
+					<h:outputText value="#{advisor.advisornumber}" />
+				</p:column>
+				<p:column id="managementcompany" 
+					filterBy="#{advisor.managementcompany}" filterMatchMode="exact"
+					headerText="Management Company" >
+					<f:facet name="filter">
+						<p:selectOneMenu onchange="PF('$dealerinfo').filter()">
+							<f:selectItems value="#{dealerController.managementcompanies}" />
+						</p:selectOneMenu>
+					</f:facet>
+					<h:outputText value="#{advisor.managementcompany}" />
+				</p:column>
+				<p:column id="branch"  filterBy="#{advisor.branch}"  headerText="Branch" filterMatchMode="in">
+					<f:facet name="filter">
+						<p:selectCheckboxMenu label="Branches"
+							onchange="PF('$dealerinfo').filter()" panelStyle="width:150px"
+							scrollHeight="150">
+							<f:selectItems value="#{dealerController.branches}" />
+						</p:selectCheckboxMenu>
+					</f:facet>
+					<h:outputText value="#{advisor.branch}" />
+				</p:column>
+				<p:column id="year"  filterBy="#{advisor.year}"  filterMatchMode="lte"
+					headerText="Year of registration">
+					<f:facet name="filter">
+						<p:spinner onchange="PF('$dealerinfo').filter()" min="2000" 
+							max="2010" size="5">
+							<f:converter converterId="javax.faces.Integer" />
+						</p:spinner>
+					</f:facet>
+					<h:outputText value="#{advisor.year}" />
+				</p:column>
+
+				<p:column  id="status" filterBy="#{advisor.status}"  headerText="Status" filterMatchMode="equals" width="290">
+					<f:facet name="filter">
+						<p:selectOneButton onchange="PF('$dealerinfo').filter()" >
+							<f:converter converterId="javax.faces.Boolean" />
+							<f:selectItem itemLabel="All" itemValue="" />
+							<f:selectItem itemLabel="ACTIVE" itemValue="true" />
+							<f:selectItem itemLabel="CLOSED" itemValue="false" />
+						</p:selectOneButton>
+					</f:facet>
+					<h:outputText value="#{advisor.status? 'ACTIVE':'CLOSED'}" />
+				</p:column>
+
+				<p:column  id="revenue" sortBy="#{advisor.revenue}" filterBy="#{advisor.revenue}"
+					filterFunction="#{dealerController.filterByRevenue}">
+					<f:facet name="header">
+						<h:outputText value="Revenue" />
+					</f:facet>
+					<h:outputText value="#{advisor.revenue}">
+						<f:convertNumber currencySymbol="$" type="currency" />
+					</h:outputText>
+				</p:column>
+
+				<p:rowExpansion>
+					<p:dataList value="#{advisor.progressStatus}" var="progress"
+						paginator="true" rows="5"
+						paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15" type="none">  
+						<f:facet name="header">
+						     Progress Status
+						</f:facet>
+   							 Year:#{progress.year},Profit percentage: #{progress.percentage}%
+						<br />
+					</p:dataList>
+				</p:rowExpansion>
+
+			</p:dataTable>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

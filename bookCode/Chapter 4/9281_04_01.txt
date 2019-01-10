@@ -1,0 +1,3 @@
+<p:panel id="simple" header="PrimeFaces" footer="The Cookbook">
+	<h:outputText value="Open Source Primefaces is the leading JSF Component Suite in the industry, which is adopted widely and being used in production ready projects around the globe." />
+</p:panel>

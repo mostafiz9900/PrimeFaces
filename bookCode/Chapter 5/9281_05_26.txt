@@ -1,0 +1,8 @@
+<script type="text/javascript">
+	function handleTransfer(e) {
+		alert(e.item);
+		alert(e.from);
+		alert(e.toList);
+		alert(e.type);
+	}
+</script>

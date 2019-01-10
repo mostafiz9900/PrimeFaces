@@ -1,0 +1,5 @@
+<p:tree value="#{treeDataController.root}" var="node">
+	<p:treeNode>
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+</p:tree>

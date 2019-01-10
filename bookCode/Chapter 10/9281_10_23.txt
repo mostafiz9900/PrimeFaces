@@ -1,0 +1,10 @@
+<p:messages for="save" showDetail="true"/>
+<p:growl for="change" showDetail="true"/>
+<p:growl globalOnly="true" showDetail="true"/>
+
+<p:commandButton value="Save" update="@form"
+        action="#{targetableMessagesController.addSaveMessage}"/>
+<p:commandButton value="Change" update="@form"
+        action="#{targetableMessagesController.addChangeMessage}"/>
+<p:commandButton value="Delete" update="@form"
+        action="#{targetableMessagesController.addDeleteMessage}"/>

@@ -1,0 +1,49 @@
+bindEvents: function(parent) {
+    var _self = this;
+
+    // bind events
+    parent.find(".ui-layout-pane")
+	.bind("layoutpaneonopen",function () {
+	    var behavior = _self.cfg.behaviors ? _self.cfg.behaviors['open'] : null;
+	    if (behavior) {
+		var combinedPosition = $(this).data('combinedposition');
+		var ext = {
+		    params:[
+			{name:_self.id + '_pane', value:combinedPosition}
+		    ]
+		};
+
+		behavior.call(_self, combinedPosition, ext);
+	    }
+	}).bind("layoutpaneonclose",function () {
+	    var behavior = _self.cfg.behaviors ? _self.cfg.behaviors['close'] : null;
+	    if (behavior) {
+		var combinedPosition = $(this).data('combinedposition');
+		var ext = {
+		    params:[
+			{name:_self.id + '_pane', value:combinedPosition}
+		    ]
+		};
+
+		behavior.call(_self, combinedPosition, ext);
+	    }
+	}).bind("layoutpaneonresize", function () {
+	    var layoutPane = $(this).data("layoutPane");
+
+	    if (!layoutPane.state.isClosed && !layoutPane.state.isHidden) {
+		var behavior = _self.cfg.behaviors ? _self.cfg.behaviors['resize'] : null;
+		if (behavior) {
+		    var combinedPosition = $(this).data('combinedposition');
+		    var ext = {
+			params:[
+			    {name:_self.id + '_pane', value:combinedPosition},
+			    {name:_self.id + '_width', value:layoutPane.state.innerWidth},
+			    {name:_self.id + '_height', value:layoutPane.state.innerHeight}
+			]
+		    };
+
+		    behavior.call(_self, combinedPosition, ext);
+		}
+	    }
+	});        
+}

@@ -1,0 +1,1 @@
+url("#{resource['primefaces-funny:images/ui-bg_highlight-hard_100_f9f9f9.png']}")

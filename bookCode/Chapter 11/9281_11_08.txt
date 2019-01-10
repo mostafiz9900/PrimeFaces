@@ -1,0 +1,64 @@
+public class LayoutOptions implements Serializable {
+
+	// direct options
+	private Map<String, Object> options = new HashMap<String, Object>();
+
+	// options for all panes
+	private LayoutOptions panes;
+
+	// options for every specific pane (depends on position)
+	private LayoutOptions north;
+	private LayoutOptions south;
+	private LayoutOptions west;
+	private LayoutOptions east;
+	private LayoutOptions center;
+
+	// options for child layout
+	private LayoutOptions child;
+
+	public LayoutOptions() {
+	}
+
+	public Map<String, Object> getOptions() {
+		return options;
+	}
+
+	public void setOptions(Map<String, Object> options) {
+		this.options = options;
+	}
+
+	public void addOption(String key, Object value) {
+		options.put(key, value);
+	}
+
+	public void setPanesOptions(LayoutOptions layoutOptions) {
+		panes = layoutOptions;
+	}
+
+	public LayoutOptions getPanesOptions() {
+		return panes;
+	}
+
+	public void setNorthOptions(LayoutOptions layoutOptions) {
+		north = layoutOptions;
+	}
+
+	public LayoutOptions getNorthOptions() {
+		return north;
+	}
+
+	// getters / setters for other pane options
+	...
+
+	public void setChildOptions(LayoutOptions layoutOptions) {
+		child = layoutOptions;
+	}
+
+	public LayoutOptions getChildOptions() {
+		return child;
+	}
+
+	public String render() {
+		return GsonLayoutOptions.getGson().toJson(this);
+	}
+}

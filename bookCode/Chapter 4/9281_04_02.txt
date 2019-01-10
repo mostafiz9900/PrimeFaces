@@ -1,0 +1,12 @@
+<p:panel id="panelWithMenu" header="PrimeFaces" footer="The Cookbook" widgetVar="panel" closable="true" toggleable="true">
+	<h:outputText value="Open Source Primefaces is the leading JSF Component Suite in the industry, which is adopted widely and being used in production ready projects around the globe." />
+
+	<f:facet name="options">
+		<p:menu>
+			<p:submenu label="Settings">
+				<p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="panel.toggle()"/>
+				<p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"/>
+			</p:submenu>
+		</p:menu>
+	</f:facet>
+</p:panel>

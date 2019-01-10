@@ -1,0 +1,6 @@
+<p:galleria value="#{galleriaController.cars}" var="car" showOverlays="true">
+	<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" title="#{car.name}" />
+	<p:galleriaOverlay title="#{car.name}">
+		Model #{car.name}, Year: #{car.year}
+	</p:galleriaOverlay>
+</p:galleria>

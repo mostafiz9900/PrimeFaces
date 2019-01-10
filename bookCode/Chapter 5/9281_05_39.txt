@@ -1,0 +1,7 @@
+root = new DefaultTreeNode("root", null);
+TreeNode node1 = new DefaultTreeNode(new TreeTableElement("Node1", "1st Column", "2nd Column"), root);
+TreeNode node2 = new DefaultTreeNode(new TreeTableElement("Node2", "1st Column", "2nd Column"), root);
+TreeNode node11 = new DefaultTreeNode(new TreeTableElement("Node1.1", "1st Column", "2nd Column"), node1);
+TreeNode node12 = new DefaultTreeNode(new TreeTableElement("Node1.2", "1st Column", "2nd Column"), node1);
+TreeNode node21 = new DefaultTreeNode(new TreeTableElement("Node2.1", "1st Column", "2nd Column"), node2);
+TreeNode node211 = new DefaultTreeNode(new TreeTableElement("Node2.1.1", "1st Column", "2nd Column"), node21);

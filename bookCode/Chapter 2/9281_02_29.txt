@@ -1,0 +1,16 @@
+<p:selectOneMenu id="statefulSwitcher2"
+                 value="#{userSettingsController.currentTheme}"
+                 var="theme" effect="drop"
+                 onchange="$('#mainForm').submit()">
+    <f:converter converterId="org.primefaces.cookbook.converter.ThemeConverter"/>
+    <f:selectItems var="t"
+                   value="#{userSettingsController.availableThemes}"
+                   itemLabel="#{t.name}"
+                   itemValue="#{t}"/>
+    <p:column>
+        <p:graphicImage value="#{theme.image}"/>
+    </p:column>
+    <p:column>
+        <h:outputText value="#{theme.name}"/>
+    </p:column>
+</p:selectOneMenu>

@@ -1,0 +1,8 @@
+MapModel polygonModel = new DefaultMapModel();
+
+Polygon polygon = new Polygon();
+polygon.getPaths().add(new LatLng(41.073399, 29.051971));
+polygon.getPaths().add(new LatLng(41.118418, 29.134026));
+polygon.getPaths().add(new LatLng(41.027807, 29.049973));
+
+polygonModel.addOverlay(polygon);

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.packt.pfblueprints.model.InvestmentSummary" table="investmentsummary">
+   <id name="id" type="int" column="ID" >
+   <generator class="increment"/>
+  </id>
+  <property name="accountNumber">
+    <column name="accountNumber" />
+  </property>
+  <property name="fundname">
+    <column name="fundname" />
+  </property>
+  <property name="investmentNumber">
+    <column name="investmentNumber" />
+  </property>
+  <property name="investmentManager">
+    <column name="investmentManager" />
+  </property>
+  <property name="marketingCompany">
+    <column name="marketingCompany"/>
+  </property>
+  <property name="avgUnitPrice">
+    <column name="avgUnitPrice" />
+  </property>
+  <property name="marketValue1">
+    <column name="marketValue1"/>
+  </property>
+  <property name="marketValue2">
+    <column name="marketValue2" />
+  </property>
+  <property name="marketValue3">
+    <column name="marketValue3"/>
+  </property>
+  <property name="marketValue4">
+    <column name="marketValue4" />
+  </property>
+  <property name="marketValue5">
+    <column name="marketValue5" />
+  </property>
+  
+ </class>
+</hibernate-mapping>

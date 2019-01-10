@@ -1,0 +1,8 @@
+public class CroppedImage {
+	String originalFilename;
+	byte[] bytes;
+	int left;
+	int top;
+	int width;
+	int height;
+}

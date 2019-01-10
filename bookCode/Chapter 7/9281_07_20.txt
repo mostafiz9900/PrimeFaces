@@ -1,0 +1,14 @@
+public String cropWithSave() {
+	ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+	String newFileName = servletContext.getRealPath("") + File.separator + "resources" + File.separator + "images" + File.separator + "cropped.jpg";
+	FileImageOutputStream imageOutput;
+	try {
+		imageOutput = new FileImageOutputStream(new File(newFileName));
+		imageOutput.write(croppedImageSimple.getBytes(), 0, croppedImageSimple.getBytes().length);
+		imageOutput.close();
+	}
+	catch (Exception e) {
+		throw new FacesException("Error in writing cropped image.", e);
+	}
+	return null;
+}

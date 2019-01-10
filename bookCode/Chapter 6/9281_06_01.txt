@@ -1,0 +1,17 @@
+<p:growl id="growl"/>
+
+<p:menu>
+    <p:submenu label="JavaScript Libraries">
+        <p:menuitem value="jQuery" url="http://jquery.com"/>
+        <p:menuitem value="Yahoo UI" url="http://yuilibrary.com"/>
+        <p:menuitem value="Prototype" url="http://prototypejs.org"/>
+    </p:submenu>
+    <p:submenu label="Operations">
+        <p:menuitem value="Save" 
+            actionListener="#{positionedMenuController.save}" update="growl"/>
+        <p:menuitem value="Update"
+            actionListener="#{positionedMenuController.update}" update="growl"/>
+        <p:menuitem value="Delete"
+            actionListener="#{positionedMenuController.delete}" update="growl"/>
+    </p:submenu>
+</p:menu>

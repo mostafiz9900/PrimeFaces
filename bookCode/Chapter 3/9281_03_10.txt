@@ -1,0 +1,4 @@
+public void handleSelect(SelectEvent event) {
+	Object selectedObject = event.getObject();
+	MessageUtil.addInfoMessage("selected.object", selectedObject);
+}

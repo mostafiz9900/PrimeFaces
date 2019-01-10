@@ -1,0 +1,1 @@
+<h:outputScript library="js" name="turkishLocale.js" />

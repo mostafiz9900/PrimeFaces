@@ -1,0 +1,4 @@
+<p:treeTable id="withAJAX" value="#{treeTableController.root}" var="element">
+	<p:ajax event="expand" listener="#{treeDataController.onNodeExpand}" update="form:growl" />
+	...
+</p:treeTable>

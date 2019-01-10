@@ -1,0 +1,1 @@
+<p:barChart value="#{barChartController.model}" xaxisLabel="Year" yaxisLabel="Amount" />

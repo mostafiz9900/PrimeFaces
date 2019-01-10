@@ -1,0 +1,6 @@
+StreamedContent capturedImage;
+
+public void onCapture(CaptureEvent captureEvent) {
+	byte[] data = captureEvent.getData();
+	capturedImage = new DefaultStreamedContent(new ByteArrayInputStream(data));
+}

@@ -1,0 +1,5 @@
+<p:tree id="dynamic" value="#{treeDataController.root}" var="node" dynamic="true" cache="true">
+	<p:treeNode>
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+</p:tree>

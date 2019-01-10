@@ -1,0 +1,30 @@
+<p:dataTable id="inCellEditing" var="car" value="#{dataTableController.cars}" rowKey="#{car.name}" editable="true">
+	<p:column headerText="Year">
+		<p:cellEditor>
+			<f:facet name="output">
+				<h:outputText value="#{car.year}" />
+			</f:facet>
+			<f:facet name="input">
+				<p:inputText value="#{car.year}" />
+			</f:facet>
+		</p:cellEditor>
+	</p:column>
+	<p:column headerText="Name">
+		<p:cellEditor>
+			<f:facet name="output">
+				<h:outputText value="#{car.name}" />
+			</f:facet>
+			<f:facet name="input">
+				<h:selectOneMenu value="#{car.name}" >
+					<f:selectItems value="#{dataTableController.carNames}"
+								   var="name"
+								   itemLabel="#{name}"
+								   itemValue="#{name}" />
+				</h:selectOneMenu>
+			</f:facet>
+		</p:cellEditor>
+	</p:column>
+	<p:column headerText="Actions">
+		<p:rowEditor />
+	</p:column>
+</p:dataTable>

@@ -1,0 +1,1 @@
+entity jpa --class ~.domain.Carfield number --fieldName yearOfManufacture --type java.lang.Integer --notNullfield string --fieldName name --notNull field enum --fieldName manufacturer --type ~.domain.Manufacturer –notNull

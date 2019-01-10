@@ -1,0 +1,19 @@
+public class FileController implements Serializable {
+    private StreamedContent file;
+    public FileController() {
+        InputStream stream = this.getClass().getResourceAsStream("/chapter7/PFSamplePDF.pdf");
+        file = new DefaultStreamedContent(stream, "application/pdf", "PFSample.pdf");
+    }
+
+    public StreamedContent getFile() {
+        return file;
+    }
+
+    public StreamedContent getDownloadFile() {
+        return downloadFile;
+    }
+}
+
+<p:commandButton value="Download" ajax="false">
+	<p:fileDownload value="#{fileController.file}" />
+</p:commandButton>

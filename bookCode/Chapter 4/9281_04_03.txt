@@ -1,0 +1,6 @@
+<p:panel id="ajaxPanel" header="PrimeFaces" footer="The Cookbook" closable="true" toggleable="true">
+	<p:ajax event="close" listener="#{panelController.handleClose}" update="growl" />
+	<p:ajax event="toggle" listener="#{panelController.handleToggle}" update="growl" />
+
+	<h:outputText value="Open Source Primefaces is the leading JSF Component Suite in the industry, which is adopted widely and being used in production ready projects around the globe." />
+</p:panel>

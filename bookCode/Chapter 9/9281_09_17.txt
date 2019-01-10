@@ -1,0 +1,1 @@
+<p:pieChart value="#{pieChartController.model}" sliceMargin="5" diameter="200" fill="false" />

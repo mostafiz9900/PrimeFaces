@@ -1,0 +1,5 @@
+<p:barChart value="#{barChartController.model}" showDatatip="true" datatipFormat="#{barChartController.datatipFormat}" />
+
+public String getDatatipFormat() {
+	return "<span style=\"display:none;\">%s</span><span>%s</span>";
+}

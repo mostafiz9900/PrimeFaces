@@ -1,0 +1,16 @@
+<p:selectBooleanCheckbox id="checkbox" itemLabel="Update first output"
+                         value="#{requestContextController.firstOutput}"/>
+
+<h:panelGrid columns="2" style="margin-top:10px;">
+    <h:outputText value="First Output"/>
+    <h:outputText id="firstOutput" value="#{requestContextController.counter}"/>
+
+    <h:outputText value="Second Output"/>
+    <h:outputText id="secondOutput" value="#{requestContextController.counter}"/>
+
+    <f:facet name="footer">
+        <p:commandButton value="Increment counter"
+                         actionListener="#{requestContextController.incrementWithUpdate}"
+                         process="@form" style="margin:10px 0 10px 0;"/>
+    </f:facet>
+</h:panelGrid>

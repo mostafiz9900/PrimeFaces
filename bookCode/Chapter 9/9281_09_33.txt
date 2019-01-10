@@ -1,0 +1,2 @@
+<p:poll interval="3" update="live" />
+<p:pieChart id="live" value="#{pieChartController.livePieModel}" style="height:250px" />

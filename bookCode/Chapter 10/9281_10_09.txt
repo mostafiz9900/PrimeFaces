@@ -1,0 +1,9 @@
+public void onNodeSelect(NodeSelectEvent event) {
+    ...
+
+    String view = ((BookTreeNode) event.getTreeNode().getData()).getView();
+
+    FacesContext fc = FacesContext.getCurrentInstance();
+    fc.getApplication().getNavigationHandler()
+        .handleNavigation(fc, "null", "/views/" + view + "?faces-redirect=true");
+}

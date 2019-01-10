@@ -1,0 +1,1 @@
+xmlns:p="http://primefaces.org/mobile"

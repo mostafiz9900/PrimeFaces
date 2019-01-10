@@ -1,0 +1,2 @@
+<p:inputTextarea value="#{bean.propertyName}" counter="display" maxlength="20" counterTemplate="{0} characters remaining" />
+<h:outputText id="display" />

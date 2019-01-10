@@ -1,0 +1,4 @@
+public void handleReorder(DashboardReorderEvent event) {
+	MessageUtil.addInfoMessageWithoutKey("Reordered: " + event.getWidgetId(),
+			"Item index: " + event.getItemIndex() + ", Column index: " + event.getColumnIndex() + ", Sender column index: " + event.getSenderColumnIndex());
+}

@@ -1,0 +1,2 @@
+<p:pickList id="withCustomScript" value="#{pickListController.countries}" onTransfer="handleTransfer(e)"
+			var="country" itemLabel="#{country}" itemValue="#{country}" />

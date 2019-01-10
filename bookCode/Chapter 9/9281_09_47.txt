@@ -1,0 +1,3 @@
+<p:gmap id="withAJAX" center="41.106261, 29.057465" zoom="10" type="roadmap" style="width:600px;height:400px" model="#{mapController.markerModel}">
+	<p:ajax event="overlaySelect" listener="#{mapController.onMarkerSelect}" update="growl" />
+</p:gmap>

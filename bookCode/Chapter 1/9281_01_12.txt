@@ -1,0 +1,1 @@
+<p:growl id="growl" /><p:commandButton action="#{localizationController.addMessage}" value="Display Message" update="growl" />

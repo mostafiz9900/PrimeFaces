@@ -1,0 +1,9 @@
+<dependencies>
+    ...    
+    <dependency>
+        <groupId>org.primefaces.extensions</groupId>
+        <artifactId>primefaces-extensions</artifactId>
+        <version>0.6.1</version>
+    </dependency>
+    ...
+</dependencies>

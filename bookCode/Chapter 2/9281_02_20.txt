@@ -1,0 +1,7 @@
+- jar
+    - META-INF
+        - resources
+            - primefaces-home
+                - theme.css
+                - images
+                    - ...

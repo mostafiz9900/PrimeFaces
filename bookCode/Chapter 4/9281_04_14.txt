@@ -1,0 +1,16 @@
+DashboardColumn column1 = new DefaultDashboardColumn();
+DashboardColumn column2 = new DefaultDashboardColumn();
+DashboardColumn column3 = new DefaultDashboardColumn();
+
+column1.addWidget("calculator");
+column1.addWidget("calendar");
+column1.addWidget("contact");
+
+column2.addWidget("dictionary");
+
+column3.addWidget("weather");
+column3.addWidget("translation");
+
+model.addColumn(column1);
+model.addColumn(column2);
+model.addColumn(column3);

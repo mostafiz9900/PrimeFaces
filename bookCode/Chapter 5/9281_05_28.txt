@@ -1,0 +1,9 @@
+TreeNode root = new DefaultTreeNode("Root", null);
+TreeNode node1 = new DefaultTreeNode("Node1", root);
+TreeNode node2 = new DefaultTreeNode("Node2", root);
+
+TreeNode node11 = new DefaultTreeNode("Node1.1", node1);
+TreeNode node12 = new DefaultTreeNode("Node1.2", node1);
+
+TreeNode node21 = new DefaultTreeNode("Node2.1", node2);
+TreeNode node211 = new DefaultTreeNode("Node2.1.1", node21);

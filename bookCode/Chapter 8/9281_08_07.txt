@@ -1,0 +1,19 @@
+<h:panelGroup id="dropTarget2" layout="block" styleClass="ui-widget-content"
+              style="height:120px;width:300px;">
+    <p class="ui-widget-header" style="margin:0;padding:5px;">Drop here</p>
+    <p:droppable onDrop="handleDrop" scope="dnd"/>
+</h:panelGroup>
+
+<br/>
+
+<h:panelGrid columns="2">
+    <h:panelGroup id="drag1" layout="block" styleClass="dragDiv ui-widget-content">
+        <p>Drag me to my target</p>
+        <p:draggable scope="dnd"/>
+    </h:panelGroup>
+
+    <h:panelGroup id="drag2" layout="block" styleClass="dragDiv ui-widget-content">
+        <p>I'm draggable, but can't be dropped</p>
+        <p:draggable scope="dummy"/>
+    </h:panelGroup>
+</h:panelGrid>

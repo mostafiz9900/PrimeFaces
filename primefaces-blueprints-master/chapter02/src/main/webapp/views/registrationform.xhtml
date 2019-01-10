@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterTemplate.xhtml">
+	<ui:define name="head">
+
+		<script type="text/javascript">
+			//<![CDATA[
+			/**
+			 * JSF Validator
+			 */
+			PrimeFaces.validator['custom.emailValidator'] = {
+
+				pattern : /\S+@\S+/,
+
+				validate : function(element, value) {
+					//use element.data() to access validation metadata, in this case there is none.
+					if (!this.pattern.test(value)) {
+						throw {
+							summary : 'Validation Error',
+							detail : value + ' is not a valid email.'
+						}
+					}
+				}
+			};
+
+			/**
+			 * Bean validator for @Email
+			 */
+			/* PrimeFaces.validator['Email'] = {
+
+				pattern : /\S+@\S+/,
+
+				MESSAGE_ID : 'com.packt.pfblueprints.validators.invalid',
+
+				validate : function(element, value) {
+					var vc = PrimeFaces.util.ValidationContext;
+
+					if (!this.pattern.test(value)) {
+						var msgStr = element.data('p-email-msg'), msg = msgStr ? {
+							summary : msgStr,
+							detail : msgStr
+						}
+								: vc.getMessage(this.MESSAGE_ID);
+
+						throw msg;
+					}
+				}
+			};
+			//]]> */
+		</script>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form id="loginform">
+
+			<p:growl id="growl" sticky="true" showDetail="true" />
+
+			<p:wizard flowListener="#{registrationController.onFlowProcess}">
+
+				<p:tab id="personal" title="Personal">
+
+					<p:panel header="Personal Details">
+
+						<h:messages errorClass="error" />
+
+						<h:panelGrid columns="2" columnClasses="label, value"
+							styleClass="grid">
+
+							<p:outputLabel for="userid" value="UserID: " />
+							<p:inputText id="userid" required="true"
+								requiredMessage="UserID shouldn't be empty"
+								value="#{registrationController.employee.userid}" />
+
+							<p:outputLabel for="firstname"  value="Firstname: " />
+							<p:inputText id="firstname" required="true"
+								requiredMessage="Firstname shouldn't be empty"
+								value="#{registrationController.employee.firstname}" />
+
+							<h:outputText value="Lastname: " />
+							<p:inputText label="Lastname"
+								value="#{registrationController.employee.lastname}" />
+
+							<p:outputLabel for="dob" value="Date of birth: " />
+							<p:calendar id="dob" value="#{registrationController.employee.dob}"
+								required="true" pattern="dd/MM/yyyy" effect="slideDown"
+								navigator="true" showButtonPanel="true" yearRange="c-50:c+50" />
+
+							<h:outputText value="Gender: " />
+							<p:selectOneRadio id="gender"
+								value="#{registrationController.employee.gender}">
+								<f:selectItem itemLabel="Male" itemValue="M" />
+								<f:selectItem itemLabel="Felmale" itemValue="F" />
+							</p:selectOneRadio>
+
+							<h:outputText value="Marital Status: " />
+							<p:selectOneButton
+								value="#{registrationController.employee.maritalStatus}">
+								<f:selectItem itemLabel="Single" itemValue="Single" />
+								<f:selectItem itemLabel="Married" itemValue="Married" />
+								<f:selectItem itemLabel="Divorced" itemValue="Divorced" />
+							</p:selectOneButton>
+							<h:outputText value="Skip to last step: " />
+							<p:selectBooleanCheckbox value="#{registrationController.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="address" title="Address">
+					<p:panel header="Address Details">
+						<p:growl id="error"  showDetail="true"/>
+
+						<h:panelGrid columns="3" columnClasses="label, value,label">
+							<h:outputText value="Address: " />
+							<p:inputTextarea id="textarea"
+								value="#{registrationController.employee.address}" rows="5"
+								cols="30" counter="counter" maxlength="150"
+								validatorMessage="Length should not be less than 5 characters"
+								counterTemplate="{0} more characters remaining.">
+								<f:validateLength minimum="5" />
+								<p:clientValidator />
+							</p:inputTextarea>
+							<p:message for="textarea" />
+
+							<h:outputText></h:outputText>
+							<h:outputText id="counter"></h:outputText>
+							<h:outputText></h:outputText>
+
+							<h:outputText value="Country: " />
+							<p:selectOneMenu
+								value="#{registrationController.employee.country}" effect="fold"
+								var="countryvar" editable="true"
+								valueChangeListener="#{registrationController.handleCountryChange}">
+								<f:selectItem itemLabel="Select One" itemValue="" />
+								<f:selectItems value="#{registrationController.countries}" />
+								<p:ajax event="change" update="city" />
+							</p:selectOneMenu>
+							<h:outputText></h:outputText>
+
+							<h:outputText value="City: " />
+							<p:selectOneMenu id="city"
+								value="#{registrationController.employee.city}" effect="fold"
+								editable="true">
+								<f:selectItem itemLabel="Select One" itemValue="" />
+								<f:selectItems value="#{registrationController.cities}" />
+							</p:selectOneMenu>
+							<h:outputText></h:outputText>
+
+							<h:outputText value="Phone: " />
+							<p:inputMask value="#{registrationController.employee.phone}"
+								mask="(999) 999-9999? x99999" />
+							<h:outputText></h:outputText>
+
+							<h:outputText value="Postal Code: " />
+							<p:inputMask
+								value="#{registrationController.employee.postalCode}"
+								mask="999-99-9999" />
+							<h:outputText></h:outputText>
+
+							<h:outputText value="Email: " />
+							<p:inputText id="email"
+								value="#{registrationController.employee.email}">
+								<f:validator validatorId="custom.emailValidator" />
+							</p:inputText>
+							<h:outputText></h:outputText>
+
+
+							<h:outputText value="Skip to last step: " />
+							<p:selectBooleanCheckbox value="#{registrationController.skip}" />
+							<h:outputText></h:outputText>
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="education" title="Education">
+					<p:panel header="Education">
+						<h:messages errorClass="error" />
+						<h:panelGrid columns="2" cellspacing="10"  columnClasses="label, value">
+							<p:outputLabel for="university" value="University:" />
+							<p:inputText id="university" required="true"
+								requiredMessage="University cannot be empty" label="University"
+								value="#{registrationController.employee.university}" />
+
+							<h:outputText value="Qualification: " />
+							<p:selectManyButton
+								value="#{registrationController.employee.qualification}">
+								<f:selectItem itemLabel="BTech" itemValue="BTech" />
+								<f:selectItem itemLabel="MTech" itemValue="MTech" />
+								<f:selectItem itemLabel="MS" itemValue="MS" />
+							</p:selectManyButton>
+
+							<h:outputText id="output"
+								value="Last degree percentage %#{registrationController.employee.percentage}">
+							</h:outputText>
+
+							<p:slider for="txt2" display="output" style="width:200px"
+								displayTemplate="Last degree percentage %{value}" />
+							<h:inputHidden id="txt2"
+								value="#{registrationController.employee.percentage}" />
+							<h:outputText></h:outputText>
+							<h:outputText value="Skip to last step: " />
+							<p:selectBooleanCheckbox value="#{registrationController.skip}" />
+
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="profession_details" title="Profession">
+					<p:panel header="Profession">
+						<h:messages errorClass="error" />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel for="profession" value="Profession:" />
+							<p:inputText id="profession" required="true"
+								requiredMessage="Profession can't be empty"
+								value="#{registrationController.employee.profession}" />
+
+							<p:outputLabel for="experience" value="Experience:" />
+							<p:spinner id="experience" required="true"
+								requiredMessage="Experience can't be empty"
+								min="2" value="#{registrationController.employee.experience}" />
+
+							<h:outputText value="Company: " />
+							<p:autoComplete id="acMinLength" minQueryLength="3"
+								value="#{registrationController.employee.company}" effect="fade"
+								completeMethod="#{registrationController.complete}" />
+
+							<p:outputLabel for="current" value="Current Package:" />
+							<p:spinner id="current" required="true"
+								requiredMessage="Current package can't be empty" prefix="$" min="3"
+								value="#{registrationController.employee.currentPack}" />
+
+							<p:outputLabel for="expected" value="Expected Package:" />
+							<p:spinner id="expected" required="true"
+								requiredMessage="Expected package can't be empty" prefix="$"
+								 min="3" max="20"
+								value="#{registrationController.employee.expectedPack}" />
+
+							<p:outputLabel for="jod" value="Joined Date:" />
+							<p:calendar id="jod" value="#{registrationController.employee.joinedDate}"
+								required="true" requiredMessage="Joined date can't be empty"
+								showOn="button" mode="popup" pattern="dd/MM/yyyy" />
+
+							<h:outputText value="Skip to last step: " />
+							<p:selectBooleanCheckbox value="#{registrationController.skip}" />
+
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="skills" title="Skills">
+					<p:panel header="Skills">
+						<h:messages errorClass="error" />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel for="frameworks" value="Frameworks:" />
+							<p:selectCheckboxMenu id="frameworks"
+								value="#{registrationController.employee.selectedFrameworks}"
+							    filter="true" 
+								filterMatchMode="startsWith">
+								<f:selectItems value="#{registrationController.allFrameworks}" />
+							</p:selectCheckboxMenu>
+
+							<h:outputText value="Databases: " />
+							<p:selectManyCheckbox id="database"
+								value="#{registrationController.employee.selectedDBs}">
+								<f:selectItems value="#{registrationController.allDBs}" />
+							</p:selectManyCheckbox>
+
+							<h:outputText value="Server Expertise:" />
+							<p:multiSelectListbox id="servers"
+								value="#{registrationController.employee.selectedServer}">
+								<f:selectItems value="#{registrationController.allServers}" />
+							</p:multiSelectListbox>
+
+							<h:outputText value="IDE Expertise: " />
+							<p:selectOneListbox
+								value="#{registrationController.employee.selectedIDE}"
+								effect="slide">
+								<f:selectItems value="#{registrationController.allIDEs}" />
+							</p:selectOneListbox>
+
+							<h:outputText value="Skip to last step: " />
+							<p:selectBooleanCheckbox value="#{registrationController.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+
+				<p:tab id="confirm" title="Confirmation">
+					<p:panel header="Confirmation">
+						<h:panelGrid id="confirmation" columns="6">
+							<h:outputText value="Firstname: " />
+							<p:inplace id="firstnameinplace" editor="true">
+								<p:inputText
+									value="#{registrationController.employee.firstname}" />
+							</p:inplace>
+
+							<h:outputText value="Lastname: " />
+							<p:inplace id="lastnameinplace" editor="true">
+								<p:inputText value="#{registrationController.employee.lastname}" />
+							</p:inplace>
+
+							<h:outputText value="DOB: " />
+							<p:inplace id="dobinplace" editor="true">
+								<p:calendar pattern="dd/MM/yyyy"
+									value="#{registrationController.employee.dob}" />>
+							</p:inplace>
+
+							<h:outputText value="Country: " />
+							<p:inplace id="countryinplace" editor="true">
+								<p:inputText value="#{registrationController.employee.country}" />
+							</p:inplace>
+
+							<h:outputText value="City: " />
+							<p:inplace id="cityinplace" editor="true">
+								<p:inputText value="#{registrationController.employee.city}" />
+							</p:inplace>
+
+							<h:outputText value="Postal Code: " />
+							<p:inplace id="postalinplace" editor="true">
+								<p:inputText
+									value="#{registrationController.employee.postalCode}" />
+							</p:inplace>
+
+							<h:outputText value="Email: " />
+							<p:inplace id="emailinplace" editor="true">
+								<p:inputText value="#{registrationController.employee.email}" />
+							</p:inplace>
+
+							<h:outputText value="Phone " />
+							<p:inplace id="phoneinplace" editor="true">
+								<p:inputText value="#{registrationController.employee.phone}" />
+							</p:inplace>
+						</h:panelGrid>
+						<p:commandButton value="Submit" update="growl"
+							actionListener="#{registrationController.saveEmployee}" />
+					</p:panel>
+				</p:tab>
+
+			</p:wizard>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

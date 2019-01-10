@@ -1,0 +1,3 @@
+<p:commandButton update="display1,display2" /> 
+<p:commandButton update="display1 display2" /> 
+<p:commandButton update="display1,display2 display3" />

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="template/template.xhtml">
+    <ui:define name="header">
+
+    </ui:define>
+    <ui:define name="bodyContent">
+        <h:form id="centerForm" enctype="multipart/form-data">
+            <h:inputHidden value="#{locationController.location}"/>
+            <p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"
+                          mode="advanced" dragDropSupport="true"
+                          sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

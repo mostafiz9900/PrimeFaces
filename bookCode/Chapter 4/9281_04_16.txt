@@ -1,0 +1,3 @@
+.ui-dashboard-column {
+	width:200px;
+}

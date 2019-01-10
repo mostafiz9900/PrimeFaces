@@ -1,0 +1,1 @@
+<p:lineChart value="#{lineChartController.model}" xaxisLabel="Year" yaxisLabel="Amount" />

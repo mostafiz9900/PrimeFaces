@@ -1,0 +1,1 @@
+<p:imageCropper value="#{imageController. croppedImageSimple}" image="/resources/images/crop/primefaces.jpg" />

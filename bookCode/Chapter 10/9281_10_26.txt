@@ -1,0 +1,6 @@
+public String addErrorMessage() {
+    addMessage(null, FacesMessage.SEVERITY_ERROR,
+            "Sample error message", "Operation failed");
+
+    return null;
+}

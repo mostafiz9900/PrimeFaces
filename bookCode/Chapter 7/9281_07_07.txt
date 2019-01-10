@@ -1,0 +1,2 @@
+<p:fileUpload fileUploadListener="#{fileController.handleFileUpload}"
+			  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />

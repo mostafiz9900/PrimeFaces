@@ -1,0 +1,17 @@
+<pe:timeline id="timeline" value="#{customEventsController.timelines}" var="event"
+		height="250px" width="100%"> 
+    <p:ajax event="eventSelect" listener="#{customEventsController.onEventSelect}"
+	    update="viewDialog" oncomplete="viewDlg.show()"/>  
+    <h:panelGroup layout="block">
+	<h:outputText value="#{event.startDate}">
+	    <f:convertDateTime pattern="dd MMM yyyy"/>
+	</h:outputText>
+	<br/>
+	<h:outputText value="#{event.title}"/>
+    </h:panelGroup>
+</pe:timeline>
+
+<p:dialog id="viewDialog" widgetVar="viewDlg" header="Event Details">
+    <!-- show event details -->
+    ...
+</p:dialog>

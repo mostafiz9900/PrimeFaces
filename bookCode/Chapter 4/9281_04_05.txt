@@ -1,0 +1,13 @@
+<p:panelGrid columns="2">
+	<f:facet name="header">User Information</f:facet>
+
+	<h:outputLabel for="firstname" value="First Name" />
+	<p:inputText id="firstname" value="" label="firstname" />
+
+	<h:outputLabel for="lastname" value="Last Name" />
+	<p:inputText id="lastname" value="" required="true" label="lastname"/>
+
+	<f:facet name="footer">
+		<p:commandButton type="button" value="Save" icon="ui-icon-check" style="margin:0"/>
+	</f:facet>
+</p:panelGrid>

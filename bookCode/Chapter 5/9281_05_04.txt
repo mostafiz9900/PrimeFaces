@@ -1,0 +1,5 @@
+<p:dataTable id="multipleSelectionCheckbox" var="car" value="#{dataTableController.cars}" rowKey="#{car.name}"
+			 selection="#{dataTableController.selectedCars}">
+	<p:column selectionMode="multiple" />
+	...
+</p:dataTable>

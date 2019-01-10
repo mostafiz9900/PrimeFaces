@@ -1,0 +1,1 @@
+<p:inputMask value="#{inputMaskController.productKey}" mask="a*-999-a999" />

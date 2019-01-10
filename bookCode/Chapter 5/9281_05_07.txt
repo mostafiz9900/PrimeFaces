@@ -1,0 +1,3 @@
+<p:column headerText="Name" filterBy="#{car.name}" filterOptions="#{dataTableController.carNamesAsOptions}">
+	<h:outputText value="#{car.name}" />
+</p:column>

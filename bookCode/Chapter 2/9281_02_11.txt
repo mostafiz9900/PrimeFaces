@@ -1,0 +1,19 @@
+<h:panelGrid id="customInputStyles" columns="4">
+    <h:outputText value="InputText"/>
+    <p:inputText required="true" label="InputText"/>
+
+    <h:outputText value="Spinner"/>
+    <p:spinner required="true" label="Spinner"/>
+
+    <h:outputText value="Disabled InputText"/>
+    <p:inputText label="Disabled InputText" disabled="true"/>
+
+    <h:outputText value="Spinner"/>
+    <p:spinner label="Spinner" disabled="true"/>
+
+    <h:outputText value="Textarea"/>
+    <p:inputTextarea required="true" label="Textarea"/>
+
+    <h:outputText value="Calendar"/>
+    <p:calendar required="true" showOn="both" label="Calendar"/>
+</h:panelGrid>

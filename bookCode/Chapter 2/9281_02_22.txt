@@ -1,0 +1,7 @@
+- jar
+    - META-INF
+        - resources
+            - primefaces-funny
+                - theme.css
+                - images
+                    - ...

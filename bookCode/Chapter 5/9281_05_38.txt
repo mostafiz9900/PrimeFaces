@@ -1,0 +1,7 @@
+public class TreeTableElement implements Serializable {
+    private String name;
+    private String column1;
+    private String column2;
+    
+    //getters&setters
+}

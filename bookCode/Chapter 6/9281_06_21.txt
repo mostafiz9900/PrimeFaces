@@ -1,0 +1,33 @@
+@ManagedBean
+@ViewScoped
+public class CheckboxMenu implements Serializable {
+
+    private List<SelectItem> languages;
+    private Map<String, String> color;
+    private List<Locale> selectedLanguages;
+    private List<String> selectedColors;
+
+    public List<SelectItem> getLanguages() {
+        if (languages == null) {
+            languages = new ArrayList<SelectItem>();
+            languages.add(
+                new SelectItem(new Locale("de"), "German"));
+            ...
+        }
+
+        return languages;
+    }
+
+    public Map<String, String> getColors() {
+        if (color == null) {
+            color = new HashMap<String, String>();
+            color.put("Red", "Red");
+            ...
+        }
+
+        return color;
+    }
+
+    // getter, setter
+    ...
+}

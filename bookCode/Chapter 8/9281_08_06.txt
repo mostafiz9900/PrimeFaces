@@ -1,0 +1,28 @@
+<h:panelGrid columns="4">
+    <h:panelGroup id="dropFit" layout="block" styleClass="dropTarget ui-widget-content">
+        <p class="ui-widget-header">Drop here (tolerance = fit)</p>
+        <p:droppable onDrop="handleDrop" tolerance="fit"/>
+    </h:panelGroup>
+
+    <h:panelGroup id="dropIntersect" layout="block" styleClass="dropTarget ui-widget-content">
+        <p class="ui-widget-header">Drop here (tolerance = intersect)</p>
+        <p:droppable onDrop="handleDrop" tolerance="intersect"/>
+    </h:panelGroup>
+
+    <h:panelGroup id="dropPointer" layout="block" styleClass="dropTarget ui-widget-content">
+        <p class="ui-widget-header">Drop here (tolerance = pointer)</p>
+        <p:droppable onDrop="handleDrop" tolerance="pointer"/>
+    </h:panelGroup>
+
+    <h:panelGroup id="dropTouch" layout="block" styleClass="dropTarget ui-widget-content">
+        <p class="ui-widget-header">Drop here (tolerance = touch)</p>
+        <p:droppable onDrop="handleDrop" tolerance="touch"/>
+    </h:panelGroup>
+</h:panelGrid>
+
+<br/>
+
+<h:panelGroup id="drag" layout="block" styleClass="dragDiv ui-widget-content">
+    <p>Drag me to my target</p>
+    <p:draggable/>
+</h:panelGroup>

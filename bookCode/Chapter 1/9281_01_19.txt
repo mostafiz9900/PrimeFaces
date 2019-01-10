@@ -1,0 +1,1 @@
+<h:head title="PrimeFaces Cookbook - ShowCase"><f:facet name="first"></f:facet>...<f:facet name="middle"></f:facet>...<f:facet name="last"></f:facet>...</h:head>

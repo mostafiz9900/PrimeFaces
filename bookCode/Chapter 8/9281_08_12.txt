@@ -1,0 +1,19 @@
+public class Document implements Serializable {
+
+    private String title;
+    private int size;
+    private String creator;
+    private Date creationDate;
+    private String extension;
+
+    public Document(String title, int size, String creator, Date creationDate, String extension) {
+        this.title = title;
+        this.size = size;
+        this.creator = creator;
+        this.creationDate = creationDate;
+        this.extension = extension;
+    }
+
+    // getter / setter
+    ...
+}

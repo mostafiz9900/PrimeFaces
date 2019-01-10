@@ -1,0 +1,15 @@
+List<Number> intervals = new ArrayList<Number>(){{
+	add(22000);
+	add(55000);
+	add(70000);
+}};
+
+List<Number> ticks = new ArrayList<Number>(){{
+	add(10000);
+	add(20000);
+	add(30000);
+	add(50000);
+	add(70000);
+}};
+
+MeterGaugeChartModel model = new MeterGaugeChartModel(52200, intervals, ticks);

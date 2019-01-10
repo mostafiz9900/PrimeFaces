@@ -1,0 +1,1 @@
+<p:fileUpload fileUploadListener="#{fileController.handleFileUpload}" sizeLimit="10240" />

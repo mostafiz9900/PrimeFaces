@@ -1,0 +1,7 @@
+public class OhlcChartSeries implements Serializable {
+    private Object value;
+    private double open;
+    private double high;
+    private double low;
+    private double close;
+}

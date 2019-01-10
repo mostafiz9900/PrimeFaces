@@ -1,0 +1,1 @@
+<p:spinner value="#{spinnerController.intValue}" />

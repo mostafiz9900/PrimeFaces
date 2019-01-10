@@ -1,0 +1,9 @@
+private List<String> countriesSource = new ArrayList<String>();
+private List<String> countriesTarget = new ArrayList<String>();
+    
+countriesSource.add("England");
+countriesSource.add("Germany");
+countriesSource.add("Switzerland");
+countriesSource.add("Turkey");
+
+private DualListModel<String> countries = new DualListModel<String>(countriesSource, countriesTarget);

@@ -1,0 +1,1 @@
+<p:calendar value="#{calendarController.date}" effect="bounce" effectDuration="slow" />

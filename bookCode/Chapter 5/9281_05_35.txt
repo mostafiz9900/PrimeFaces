@@ -1,0 +1,2 @@
+TreeNode node1 = new DefaultTreeNode("node", "Node1", root);
+TreeNode node11 = new DefaultTreeNode("leaf", "Node1.1", node1);

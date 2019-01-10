@@ -1,0 +1,1 @@
+<p:fileUpload fileUploadListener="#{fileController.handleFileUpload}" onstart="showStatus()" oncomplete="hideStatus()" />

@@ -1,0 +1,34 @@
+<p:growl id="growl" escape="false"/>
+
+<h:panelGrid id="selectPizza" columns="1">
+    <h:outputText value="Kiymali Pide" styleClass="text"/>
+    <h:graphicImage id="pizza1" styleClass="pizzaimage"
+        library="images" name="dragdrop/pizza1.png"
+        title="Kiymali Pide"/>
+
+    <h:outputText value="Kusbasi Pide" styleClass="text"/>
+    <h:graphicImage id="pizza2" styleClass="pizzaimage"
+        library="images" name="dragdrop/pizza2.png"
+        title="Kusbasi Pide"/>
+
+    <h:outputText value="Sucuklu Ve Yumurtali Pide" styleClass="text"/>
+    <h:graphicImage id="pizza3" styleClass="pizzaimage"
+        library="images" name="dragdrop/pizza3.png"
+        title="Sucuklu Ve Yumurtali Pide"/>
+
+    <h:outputText value="Peynirli Pide" styleClass="text"/>
+    <h:graphicImage id="pizza4" styleClass="pizzaimage"
+        library="images" name="dragdrop/pizza4.png"
+        title="Peynirli Pide"/>
+
+    <h:outputText value="Ispanakli Pide" styleClass="text"/>
+    <h:graphicImage id="pizza5" styleClass="pizzaimage"
+        library="images" name="dragdrop/pizza5.png"
+        title="Ispanakli Pide"/>
+</h:panelGrid>
+
+<p:draggable for="pizza1" helper="clone" revert="true" cursor="move"/>
+<p:draggable for="pizza2" helper="clone" revert="true" cursor="move"/>
+<p:draggable for="pizza3" helper="clone" revert="true" cursor="move"/>
+<p:draggable for="pizza4" helper="clone" revert="true" cursor="move"/>
+<p:draggable for="pizza5" helper="clone" revert="true" cursor="move"/>

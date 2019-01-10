@@ -1,0 +1,4 @@
+public void handleFileUpload(FileUploadEvent event) {
+	UploadedFile file = event.getFile();
+	MessageUtil.addInfoMessage("upload.successful", file.getFileName() + " is uploaded.");
+}

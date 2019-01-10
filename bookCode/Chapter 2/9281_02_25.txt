@@ -1,0 +1,4 @@
+<context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>funny</param-value>
+</context-param>

@@ -1,0 +1,27 @@
+<p:dashboard id="board" model="#{dashboardController.model}">
+	<p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="growl" />
+
+	<p:panel id="calculator" header="Calculator">
+		<h:outputText value="Content for Calculator" />
+	</p:panel>
+
+	<p:panel id="calendar" header="Calendar">
+		<h:outputText value="Content for Calendar" />
+	</p:panel>
+
+	<p:panel id="contact" header="Contacts">
+		<h:outputText value="Content for Contacts"  />
+	</p:panel>
+
+	<p:panel id="dictionary" header="Dictionary">
+		<h:outputText value="Weather Content for Dictionary" />
+	</p:panel>
+
+	<p:panel id="weather" header="Weather">
+		<h:outputText value="Content for Weather" />
+	</p:panel>
+
+	<p:panel id="translation" header="Translation">
+		<h:outputText value="Content for Translation" />
+	</p:panel>
+</p:dashboard>

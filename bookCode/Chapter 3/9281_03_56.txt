@@ -1,0 +1,8 @@
+public void handleRate(RateEvent rateEvent) {
+	Integer rate = (Integer) rateEvent.getRating();
+	MessageUtil.addInfoMessage("rating.selected", rate);
+}
+
+public void cancelRate() {
+	MessageUtil.addInfoMessage("rating.cancelled");
+}

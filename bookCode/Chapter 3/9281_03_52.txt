@@ -1,0 +1,5 @@
+<p:password value="#{passwordController.password}"
+			promptLabel="#{msg['password.promptLabel']}"
+			weakLabel="#{msg['password.weakLabel']}"
+			goodLabel="#{msg['password.goodLabel']}"
+			strongLabel="#{msg['password.strongLabel']}"/>

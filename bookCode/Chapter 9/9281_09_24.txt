@@ -1,0 +1,1 @@
+<p:donutChart value="#{donutChartController.model}" style="height:250px" sliceMargin="5" fill="false" />

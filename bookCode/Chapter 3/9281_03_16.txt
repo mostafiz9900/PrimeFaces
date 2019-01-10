@@ -1,0 +1,1 @@
+<p:selectBooleanCheckbox value="#{selectCheckboxController.selectedValue}" itemLabel="#{msg['selectBooleanCheckbox.label']}" />

@@ -1,0 +1,4 @@
+<p:dialog widgetVar="editorDialog" modal="true">
+	<p:editor />
+</p:dialog>
+<p:commandButton value="Show" onclick="editorDialog.show()" />

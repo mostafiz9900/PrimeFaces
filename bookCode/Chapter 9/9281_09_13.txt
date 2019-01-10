@@ -1,0 +1,1 @@
+<p:barChart value="#{barChartController.model}" xaxisAngle="45" yaxisAngle="45"  />

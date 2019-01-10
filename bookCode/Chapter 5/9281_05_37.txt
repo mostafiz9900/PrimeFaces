@@ -1,0 +1,15 @@
+<p:treeTable id="simple" value="#{treeTableController.root}" var="element">
+	<f:facet name="header">Tree Table</f:facet>
+	<p:column>
+		<f:facet name="header">Name</f:facet>
+		<h:outputText value="#{element.name}" />
+	</p:column>
+	<p:column>
+		<f:facet name="header">Column 1</f:facet>
+		<h:outputText value="#{element.column1}" />
+	</p:column>
+	<p:column>
+		<f:facet name="header">Column 2</f:facet>
+		<h:outputText value="#{element.column2}" />
+	</p:column>
+</p:treeTable>

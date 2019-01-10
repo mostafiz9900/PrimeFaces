@@ -1,0 +1,4 @@
+<p:meterGaugeChart id="custom" value="#{meterGaugeController.model}" style="height:250px"
+			label="tons" title="Metric Tons Per Year"
+			showTickLabels="false" labelHeightAdjust="-20"
+			intervalOuterRadius="60" />

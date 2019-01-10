@@ -1,0 +1,4 @@
+<h:commandLink onclick="PrimeFaces.monitorDownload(showStatus, hideStatus)">
+	<p:graphicImage value="/resources/images/export/csv.png" />
+	<p:dataExporter type="csv" target="countriesTable" fileName="countries" />
+</h:commandLink>

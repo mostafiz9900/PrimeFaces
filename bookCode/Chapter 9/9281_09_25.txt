@@ -1,0 +1,1 @@
+<p:meterGaugeChart id="simple" value="#{meterGaugeController.model}" style="height:250px" />

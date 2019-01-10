@@ -1,0 +1,6 @@
+<p:dataList id="withDescription" value="#{dataListController.cars}" var="car" type="definition">
+	Name: #{car.name}
+	<f:facet name="description">
+	<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" width="60" height="40" />
+	</f:facet>
+</p:dataList>

@@ -1,0 +1,7 @@
+public void handleClose(CloseEvent event) {
+	MessageUtil.addInfoMessage("panel.closed", "Closed panel id:'" + event.getComponent().getId());
+}
+
+public void handleToggle(ToggleEvent event) {
+	MessageUtil.addInfoMessage("panel.toggled", "Status:" + event.getVisibility().name());
+}

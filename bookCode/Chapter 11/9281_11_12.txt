@@ -1,0 +1,36 @@
+<div class="ui-layout-center ui-widget-content ui-corner-all ui-layout-pane-content"
+     data-combinedposition="center">
+    Center content
+</div>
+
+<div class="ui-layout-west ui-widget-content ui-corner-all"
+     data-combinedposition="west">
+    <div class="ui-widget-header ui-corner-top ui-layout-pane-header">
+        West header
+    </div>
+    <div class="ui-layout-content ui-layout-pane-content" style="border:none">
+        West content
+    </div>
+</div>
+
+<div class="ui-layout-east ui-corner-all ui-layout-pane-withsubpanes"
+     data-combinedposition="east">
+    <div class="ui-layout-center ui-widget-content ui-corner-all"
+         data-combinedposition="east_center">
+        <div class="ui-widget-header ui-corner-top ui-layout-pane-header">
+            East-Center header
+        </div>
+        <div class="ui-layout-content ui-layout-pane-content" style="border:none">
+            East-Center content
+        </div>
+    </div>
+    <div class="ui-layout-south ui-widget-content ui-corner-all ui-layout-pane-content"
+         data-combinedposition="east_south">
+        East-South content
+    </div>
+</div>
+
+<div class="ui-layout-south ui-widget-content ui-corner-all ui-layout-pane-content"
+     data-combinedposition="south">
+    South content
+</div>

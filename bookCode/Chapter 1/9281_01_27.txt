@@ -1,0 +1,1 @@
+web jsf setup --implementation APACHE_MYFACES --library PRIMEFACES --theme EGGPLANTweb jsf all --package org.primefaces.cookbook

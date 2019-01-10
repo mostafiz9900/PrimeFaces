@@ -1,0 +1,8 @@
+<p:accordionPanel value="#{accordionPanelController.cars}" var="car">
+	<p:tab title="#{car.name}">
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" />
+			<h:outputText value="#{car.name}" />
+		</h:panelGrid>
+	</p:tab>
+</p:accordionPanel>

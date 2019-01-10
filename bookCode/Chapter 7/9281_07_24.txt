@@ -1,0 +1,19 @@
+<p:galleria id="withCustomContent" value="#{galleriaController.cars}" var="car"
+			frameWidth="140" frameHeight="80"
+			panelWidth="400" panelHeight="300">
+	<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" title="#{car.name}" />
+
+	<p:galleriaContent>
+		<h:panelGrid  columns="2" cellpadding="5">
+			<f:facet name="header">
+				<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" />
+			</f:facet>
+
+			<h:outputText value="Name: " />
+			<h:outputText id="name" value="#{car.name}"/>
+
+			<h:outputText value="Year: " />
+			<h:outputText id="number" value="#{car.year}"/>
+		</h:panelGrid>
+	</p:galleriaContent>
+</p:galleria>

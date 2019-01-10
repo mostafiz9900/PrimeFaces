@@ -1,0 +1,18 @@
+public class LayoutRenderer extends CoreRenderer {
+
+	@Override
+	public void decode(FacesContext fc, UIComponent component) {
+		decodeBehaviors(fc, component);
+	}
+
+	...
+
+	protected void encodeScript(FacesContext fc, Layout layout) throws IOException {
+		...
+
+		encodeClientBehaviors(fc, layout);
+
+		writer.write("},true);});");
+		endScript(writer);
+	}
+}

@@ -1,0 +1,1 @@
+<p:ajax event="select" listener="#{bookController.onNodeSelect}"/>

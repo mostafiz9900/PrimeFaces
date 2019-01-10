@@ -1,0 +1,1 @@
+<p:calendar showButtonPanel="true" navigator="true" mode="inline" id="enCal"/><p:calendar locale="tr" showButtonPanel="true" navigator="true" mode="inline" id="trCal"/><p:calendar locale="de" showButtonPanel="true" navigator="true" mode="inline" id="deCal"/>

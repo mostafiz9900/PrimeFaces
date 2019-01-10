@@ -1,0 +1,9 @@
+<p:tree id="ajaxListeners" value="#{treeDataController.root}" var="node"
+		selectionMode="single"
+		selection="#{treeDataController.selectedNode}">
+	<p:ajax event="select" listener="#{treeDataController.onNodeSelect}" update=":mainForm:growl" />
+
+	<p:treeNode>
+		<h:outputText value="#{node}" />
+	</p:treeNode>
+</p:tree>

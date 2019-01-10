@@ -1,0 +1,1 @@
+<p:lineChart value="#{lineChartController.model}" minY="400" maxY="800" />

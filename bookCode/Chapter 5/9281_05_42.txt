@@ -1,0 +1,8 @@
+<p:contextMenu for="withContextMenu" nodeType="node">
+	<p:menuitem value="View" update="dialogPanel" icon="ui-icon-search" oncomplete="nodeDialog.show()"/>
+</p:contextMenu>
+
+<p:contextMenu for="withContextMenu" nodeType="leaf">
+	<p:menuitem value="View" update="dialogPanel" icon="ui-icon-search" oncomplete="nodeDialog.show()"/>
+	<p:menuitem value="Delete" actionListener="#{treeTableController.deleteNode}" update="withContextMenu" icon="ui-icon-close"/>
+</p:contextMenu>

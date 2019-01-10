@@ -1,0 +1,4 @@
+PieChartModel liveChartModel = new PieChartModel();
+
+liveChartModel.set("Candidate 1", 500);
+liveChartModel.set("Candidate 2", 300);

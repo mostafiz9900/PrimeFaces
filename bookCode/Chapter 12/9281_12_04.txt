@@ -1,0 +1,21 @@
+@ManagedBean
+@ViewScoped
+public class TooltipsController implements Serializable {
+
+    private String name;
+    private Date birthDate;
+    private int children;
+
+    // getter / setter
+    ...
+
+    public String getErrorMessage(String clientId) {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Iterator<FacesMessage> iter = fc.getMessages(clientId);
+        if (iter.hasNext()) {
+            return iter.next().getDetail();
+        }
+
+        return "";
+    }
+}

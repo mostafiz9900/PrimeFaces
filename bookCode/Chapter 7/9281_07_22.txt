@@ -1,0 +1,3 @@
+<p:galleria value="#{galleriaController.cars}" var="car">
+	<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" />
+</p:galleria>

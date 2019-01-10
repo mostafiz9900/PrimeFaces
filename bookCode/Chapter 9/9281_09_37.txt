@@ -1,0 +1,4 @@
+public void itemSelect(ItemSelectEvent event) {
+	MessageUtil.addInfoMessageWithoutKey("Item selected",
+			"Series Index:" + event.getSeriesIndex() + ", Item Index: " + event.getItemIndex());
+}

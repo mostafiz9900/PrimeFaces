@@ -1,0 +1,10 @@
+<p:carousel headerText="header" footerText="footer">
+	...
+</p:carousel>
+
+
+<p:carousel>
+	<f:facet name="header">Header</f:facet>
+	<f:facet name="footer">Footer</f:facet>
+	...
+</p:carousel>

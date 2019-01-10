@@ -1,0 +1,50 @@
+{
+    "id": "fpl", 
+    "forTarget": "body", 
+    "options": {
+        "panes": {
+            "resizeWhileDragging": true, 
+            "slidable": false, 
+            "closable": true, 
+            "resizable": true, 
+            "resizeWithWindow": false, 
+            "spacing": 6
+        }, 
+        "north": {
+            "closable": false, 
+            "resizable": false, 
+            "size": 60
+        }, 
+        "south": {
+            "closable": false, 
+            "resizable": false, 
+            "size": 40
+        }, 
+        "west": {
+            "minSize": 180, 
+            "maxSize": 500, 
+            "size": 210
+        }, 
+        "east": {
+            "minSize": 180, 
+            "maxSize": 650, 
+            "size": 448, 
+            "childOptions": {
+                "south": {
+                    "minSize": 60, 
+                    "size": "70%"
+                }, 
+                "center": {
+                    "minHeight": 60
+                }
+            }
+        }, 
+        "center": {
+            "minHeight": 60, 
+            "resizeWhileDragging": false, 
+            "closable": false, 
+            "minWidth": 200, 
+            "resizable": false
+        }
+    }
+}

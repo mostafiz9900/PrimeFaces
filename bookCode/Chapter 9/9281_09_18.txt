@@ -1,0 +1,1 @@
+<p:bubbleChart value="#{bubbleChartController.model}" style="height:250px" xaxisLabel="Number of Fatal Crashes" yaxisLabel="Public Road Mileage" />

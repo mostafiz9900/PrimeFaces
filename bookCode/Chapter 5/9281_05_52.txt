@@ -1,0 +1,7 @@
+<p:ring id="simple" value="#{ringController.cars}" var="car" style="width:100%">
+	<p:column>
+		<p:outputPanel style="text-align:center;" layout="block">
+			#{car.name}
+		</p:outputPanel>
+	</p:column>
+</p:ring>

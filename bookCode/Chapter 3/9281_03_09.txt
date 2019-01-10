@@ -1,0 +1,3 @@
+<p:autoComplete value="#{autoCompleteController.txt1}" completeMethod="#{autoCompleteController.complete}">
+	<p:ajax event="itemSelect" listener="#{autoCompleteController.handleSelect}" update="messages" />
+</p:autoComplete>

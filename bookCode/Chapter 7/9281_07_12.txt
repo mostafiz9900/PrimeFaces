@@ -1,0 +1,4 @@
+<p:fileUpload id="upload" value="#{fileController.file}"
+			  dragDropSupport="true"
+			  update="growl"
+			  fileUploadListener="#{fileController.handleFileUpload}" />

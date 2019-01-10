@@ -1,0 +1,1 @@
+<p:fileUpload id="multipleUpload" value="#{fileController.file}" multiple="true" fileUploadListener="#{fileController.handleFileUpload}" />

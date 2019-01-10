@@ -1,0 +1,86 @@
+@ResourceDependencies({
+    @ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
+    @ResourceDependency(library = "primefaces", name = "primefaces.js"),
+    @ResourceDependency(library = "css", name = "chapter11/layout.css"),
+    @ResourceDependency(library = "js", name = "chapter11/jquery.layout.js"),
+    @ResourceDependency(library = "js", name = "chapter11/layout.js")
+})
+public class Layout extends UIComponentBase implements Widget, ClientBehaviorHolder {
+
+	public static final String COMPONENT_FAMILY = "org.primefaces.cookbook.component";
+	private static final String DEFAULT_RENDERER = "org.primefaces.cookbook.component.LayoutRenderer";
+
+	public static final String POSITION_SEPARATOR = "_";
+	public static final String STYLE_CLASS_PANE = "ui-widget-content ui-corner-all";
+	public static final String STYLE_CLASS_PANE_WITH_SUBPANES = "ui-corner-all ui-layout-pane-withsubpanes";
+	public static final String STYLE_CLASS_PANE_HEADER = "ui-widget-header ui-corner-top ui-layout-pane-header";
+	public static final String STYLE_CLASS_PANE_CONTENT = "ui-layout-pane-content";
+
+	protected enum PropertyKeys {
+		widgetVar,
+		fullPage,
+		options,
+		style,
+		styleClass
+	}
+
+	public Layout() {
+		setRendererType(DEFAULT_RENDERER);
+	}
+
+	@Override
+	public String getFamily() {
+		return COMPONENT_FAMILY;
+	}
+
+	public String getWidgetVar() {
+		return (String) getStateHelper().eval(PropertyKeys.widgetVar, null);
+	}
+
+	public void setWidgetVar(String widgetVar) {
+		getStateHelper().put(PropertyKeys.widgetVar, widgetVar);
+	}
+
+	public boolean isFullPage() {
+		return (Boolean) getStateHelper().eval(PropertyKeys.fullPage, true);
+	}
+
+	public void setFullPage(boolean fullPage) {
+		getStateHelper().put(PropertyKeys.fullPage, fullPage);
+	}
+
+	public Object getOptions() {
+		return getStateHelper().eval(PropertyKeys.options, null);
+	}
+
+	public void setOptions(Object options) {
+		getStateHelper().put(PropertyKeys.options, options);
+	}
+
+	public String getStyle() {
+		return (String) getStateHelper().eval(PropertyKeys.style, null);
+	}
+
+	public void setStyle(String style) {
+		getStateHelper().put(PropertyKeys.style, style);
+	}
+
+	public String getStyleClass() {
+		return (String) getStateHelper().eval(PropertyKeys.styleClass, null);
+	}
+
+	public void setStyleClass(String styleClass) {
+		getStateHelper().put(PropertyKeys.styleClass, styleClass);
+	}
+
+	public String resolveWidgetVar() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		String userWidgetVar = (String) getAttributes().get(PropertyKeys.widgetVar.toString());
+
+		if (userWidgetVar != null) {
+			return userWidgetVar;
+		}
+
+		return "widget_" + getClientId(context).replaceAll("-|" + UINamingContainer.getSeparatorChar(context), "_");
+	}
+}

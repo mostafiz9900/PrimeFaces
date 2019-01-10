@@ -1,0 +1,6 @@
+<p:dataList value="#{dataListController.countriesShort}" var="country" itemType="disc">
+	<f:facet name="header">
+		Countries starting with 'A'
+	</f:facet>
+	#{country}
+</p:dataList>

@@ -1,0 +1,169 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterTemplate.xhtml">
+	<ui:define name="content">
+		<h:form id="servicecenterform">
+
+			<p:contextMenu for="servicecenterinfo">
+				<p:menuitem value="View Advisors List"
+					action="#{serviceCenterController.storeSelectedDealer}"
+					ajax="false" icon="ui-icon-search" />
+				<p:menuitem value="Dealer Profile" update=":dealerprofileform"
+					oncomplete="PF('$dealerprofile').show()" icon="ui-icon-close" />
+				<p:menuitem value="Delete Dealer" icon="ui-icon-close"
+					update="servicecenterinfo"
+					actionListener="#{serviceCenterController.deleteDealer}" />
+			</p:contextMenu>
+			<p:growl id="messages" showDetail="true" />
+			<p:dataTable id="servicecenterinfo" widgetVar="$servicecenterinfo"
+				var="dealer" value="#{serviceCenterController.servicecenterInfo}"
+				paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" draggableColumns="true"
+				draggableRows="true" rowKey="#{dealer.dealertinnumber}"
+				paginatorPosition="bottom" sortMode="multiple"
+				selection="#{serviceCenterController.dealerobj}"
+				selectionMode="single">
+				<f:facet name="header">
+            		Service Center Information-List of Dealers
+                </f:facet>
+
+				<p:ajax event="rowReorder"
+					listener="#{serviceCenterController.onRowReorder}"
+					update=":servicecenterform:messages" />
+
+				<p:column sortBy="#{dealer.dealertinnumber}"
+					filterBy="#{dealer.dealertinnumber}" id="dealertinnumber">
+					<f:facet name="header">
+						<h:outputText value="Dealer TIN/CST Number" />
+					</f:facet>
+					<h:outputText value="#{dealer.dealertinnumber}" />
+				</p:column>
+
+				<p:column
+					sortBy="#{dealer.dealerfirstname} #{dealer.dealerlastname}"
+					filterBy="#{dealer.dealerfirstname} #{dealer.dealerlastname}"
+					id="dealername">
+					<f:facet name="header">
+						<h:outputText value="Dealer Name" />
+					</f:facet>
+					<h:outputText
+						value="#{dealer.dealerfirstname} #{dealer.dealerlastname}" />
+				</p:column>
+
+
+				<p:column sortBy="#{dealer.branchname}"
+					filterBy="#{dealer.branchname}" id="branchname">
+					<f:facet name="header">
+						<h:outputText value="Dealer Branch name" />
+					</f:facet>
+					<h:outputText value="#{dealer.branchname}" />
+				</p:column>
+
+				<p:column sortBy="#{dealer.dor}">
+					<f:facet name="header">
+						<h:outputText value="Date of registration" />
+					</f:facet>
+					<h:outputText value="#{dealer.dor}" />
+				</p:column>
+
+
+				<p:column sortBy="#{dealer.pan}">
+					<f:facet name="header">
+						<h:outputText value="PAN Number" />
+					</f:facet>
+					<h:outputText value="#{dealer.pan}" />
+				</p:column>
+
+				<p:column sortBy="#{dealer.status}">
+					<f:facet name="header">
+						<h:outputText value="Status" />
+					</f:facet>
+					<h:outputText value="#{dealer.status}" />
+					<f:facet name="footer">
+						<h:outputText value="Total Advisors:" />
+					</f:facet>
+				</p:column>
+
+				<p:column sortBy="#{dealer.noofadvisors}">
+					<f:facet name="header">
+						<h:outputText value="Number of Advisors" />
+					</f:facet>
+					<h:outputText value="#{dealer.noofadvisors}" />
+					<f:facet name="footer">
+						<h:outputText value="#{serviceCenterController.advisorsCount}" />
+					</f:facet>
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+		<p:dialog id="dealerprofile" header="Dealer Profile"
+			widgetVar="$dealerprofile" modal="true" resizable="false">
+			<h:form id="dealerprofileform">
+
+				<p:messages id="messages"></p:messages>
+				<h:panelGrid columns="3" cellpadding="5">
+					<h:outputLabel for="firstname" value="Firstname:" />
+					<p:inputText
+						value="#{serviceCenterController.dealerobj.dealerfirstname}"
+						id="firstname" required="true"
+						requiredMessage="Firstname cannot be empty" label="username">
+					</p:inputText>
+					<p:watermark for="firstname" value="Enter firstname" />
+
+					<h:outputLabel for="lastname" value="Lastname:" />
+					<p:inputText
+						value="#{serviceCenterController.dealerobj.dealerlastname}"
+						id="lastname" required="true"
+						requiredMessage="Firstname cannot be empty" label="username">
+					</p:inputText>
+					<p:watermark for="lastname" value="Enter lastname" />
+
+					<h:outputLabel for="address1" value="Address1:" />
+					<p:inputText value="#{serviceCenterController.dealerobj.address1}"
+						id="address1" required="true"
+						requiredMessage="Address cannot be empty" label="Address">
+					</p:inputText>
+					<p:watermark for="address1" value="Enter address" />
+
+					<h:outputLabel for="address2" value="Address2:" />
+					<p:inputText value="#{serviceCenterController.dealerobj.address2}"
+						id="address2" label="Address">
+					</p:inputText>
+					<p:watermark for="address2" value="Enter address" />
+
+					<h:outputLabel for="country" value="Country:" />
+					<p:inputText value="#{serviceCenterController.dealerobj.country}"
+						id="country" label="country" />
+					<p:watermark for="country" value="Enter Country" />
+
+					<h:outputLabel for="city" value="City:" />
+					<p:inputText value="#{serviceCenterController.dealerobj.city}"
+						id="city" label="City" />
+					<p:watermark for="city" value="Enter City" />
+
+					<h:outputLabel for="contactnumber" value="Contact Number:" />
+					<p:inputText
+						value="#{serviceCenterController.dealerobj.contactnumber}"
+						id="contactnumber" label="Contact Number" />
+					<p:watermark for="contactnumber" value="Enter Contact number" />
+
+					<h:outputLabel for="postalcode" value="Postal Code:" />
+					<p:inputText value="#{serviceCenterController.dealerobj.postalcode}"
+						id="postalcode" label="Postal Code" />
+					<p:watermark for="postalcode" value="Enter Postal Code" />
+
+					<f:facet name="footer">
+						<p:commandButton id="update" value="Save"
+							update=":servicecenterform"
+							actionListener="#{serviceCenterController.updateDealerProfile}" />
+					</f:facet>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>

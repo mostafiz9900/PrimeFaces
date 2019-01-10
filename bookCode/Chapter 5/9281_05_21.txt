@@ -1,0 +1,1 @@
+<p:pickList id="simple" value="#{pickListController.countries}" var="country" itemLabel="#{country}" itemValue="#{country}" />

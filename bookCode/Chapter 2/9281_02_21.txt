@@ -1,0 +1,6 @@
+- war
+    - resources
+        - primefaces-funny
+            - theme.css
+            - images
+                - ...

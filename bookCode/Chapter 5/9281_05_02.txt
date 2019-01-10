@@ -1,0 +1,3 @@
+<p:dataTable id="multipleSelection" var="car" value="#{dataTableController.cars}" rowKey="#{car.name}" selection="#{dataTableController.selectedCars}" selectionMode="multiple">
+...
+</p:dataTable>

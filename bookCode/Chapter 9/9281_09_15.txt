@@ -1,0 +1,1 @@
+<p:pieChart value="#{pieChartController.model}" style="height:250px" title="Hours per Day" />

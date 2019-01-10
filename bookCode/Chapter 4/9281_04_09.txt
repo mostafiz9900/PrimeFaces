@@ -1,0 +1,7 @@
+<p:scrollPanel style="width:500px;height:500px">
+	<p:dataGrid var="car" value="#{scrollPanelController.cars}" columns="2">
+		<p:panel header="#{car.name}" style="text-align:center">
+			<p:graphicImage value="/resources/images/autocomplete/#{car.name}.png" />
+		</p:panel>
+	</p:dataGrid>
+</p:scrollPanel>

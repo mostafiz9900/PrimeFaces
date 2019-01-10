@@ -1,0 +1,27 @@
+public String addSaveMessage() {
+    addMessage("save", FacesMessage.SEVERITY_INFO,
+            "Sample info message", "First data was successfully saved");
+    addMessage("save", FacesMessage.SEVERITY_INFO,
+            "Sample info message", "Second data was successfully saved");
+
+    return null;
+}
+
+public String addChangeMessage() {
+    addMessage("change", FacesMessage.SEVERITY_INFO,
+            "Sample info message", "Data was successfully changed");
+
+    return null;
+}
+
+public String addDeleteMessage() {
+    addMessage(null, FacesMessage.SEVERITY_INFO,
+            "Sample info message", "Data was successfully deleted");
+
+    return null;
+}
+
+private void addMessage(String key, FacesMessage.Severity severity, String message, String detail) {
+    FacesMessage msg = new FacesMessage(severity, message, detail);
+    FacesContext.getCurrentInstance().addMessage(key, msg);
+}

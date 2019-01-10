@@ -1,0 +1,14 @@
+<p:accordionPanel>
+	<p:tab title="Volkswagen CC">
+		<h:panelGrid columns="2" cellpadding="10">
+			<h:graphicImage library="images" name="autocomplete/CC.png" />
+			<h:outputText value="The Volkswagen CC (also known as the Volkswagen Passat CC) is a four-door coupé version of the Volkswagen Passat." />
+		</h:panelGrid>
+	</p:tab>
+	<p:tab title="Volkswagen Golf">
+		<h:panelGrid columns="2" cellpadding="10">
+			<h:graphicImage library="images" name="autocomplete/Golf.png" />
+			<h:outputText value="The Volkswagen Golf is a small family car manufactured by Volkswagen since 1974 and marketed worldwide across six generations, in various body configurations and under various nameplates" />
+		</h:panelGrid>
+	</p:tab>
+</p:accordionPanel>

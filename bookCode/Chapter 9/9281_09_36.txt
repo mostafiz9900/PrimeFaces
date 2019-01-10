@@ -1,0 +1,3 @@
+<p:barChart id="withAjax" value="#{barChartController.model}" style="height:250px">
+	<p:ajax event="itemSelect" listener="#{barChartController.itemSelect}" update="growl" />
+</p:barChart>

@@ -1,0 +1,3 @@
+<p:calendar id="ajaxCalendar" value="#{calendarController.date}" mode="inline">
+	<p:ajax event="dateSelect" listener="#{calendarController.onDateSelect}" update="growl" />
+</p:calendar>

@@ -1,0 +1,4 @@
+public void onSlideEnd(SlideEndEvent event) {
+    int value = event.getValue();
+    MessageUtil.addInfoMessage("selected.value", value);
+}

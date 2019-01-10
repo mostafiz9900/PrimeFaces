@@ -1,0 +1,1 @@
+<p:commandButton value="Crop" action="#{imageController.cropSimple}" update="localCroppedImage"/>

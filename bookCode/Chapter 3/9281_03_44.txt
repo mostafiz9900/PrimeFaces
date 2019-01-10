@@ -1,0 +1,1 @@
+<p:editor value="#{editorController.text}" controls="bold italic strikethrough" />

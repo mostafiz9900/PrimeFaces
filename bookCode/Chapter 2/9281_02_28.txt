@@ -1,0 +1,7 @@
+<p:themeSwitcher id="statefulSwitcher1" 
+                 value="#{userSettingsController.theme}"
+                 style="width:165px" effect="fade">
+    <f:selectItem itemLabel="Choose Theme" itemValue=""/>
+    <f:selectItems value="#{userSettingsController.themes}"/>
+    <p:ajax listener="#{userSettingsController.saveTheme}"/>
+</p:themeSwitcher>

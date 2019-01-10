@@ -1,0 +1,20 @@
+<p:messages/>
+
+<p:focus context="secondGrid"/>
+
+<h:panelGrid columns="2" style="margin-bottom:10px;">
+    <h:outputLabel value="Dummy"/>
+    <p:inputText/>
+</h:panelGrid>
+
+<h:panelGrid id="secondGrid" columns="2">
+    <h:outputLabel for="firstname" value="Firstname *"/>
+    <p:inputText id="firstname" required="true" label="Firstname"/>
+
+    <h:outputLabel for="surname" value="Surname *"/>
+    <p:inputText id="surname" required="true" label="Surname"/>
+</h:panelGrid>
+
+<br/>
+
+<p:commandButton value="Submit" update="@form"/>

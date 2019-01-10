@@ -1,0 +1,8 @@
+<p:dataTable id="sorting" var="car" value="#{dataTableController.cars}">
+	<p:column headerText="Year" sortBy="#{car.year}">
+		<h:outputText value="#{car.year}" />
+	</p:column>
+	<p:column headerText="Name" sortBy="#{car.name}">
+		<h:outputText value="#{car.name}" />
+	</p:column>
+</p:dataTable>

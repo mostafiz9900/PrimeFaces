@@ -1,0 +1,21 @@
+<component>
+    <component-type>org.primefaces.cookbook.component.Layout</component-type>
+    <component-class>org.primefaces.cookbook.component.Layout</component-class>
+</component>
+<component>
+    <component-type>org.primefaces.cookbook.component.LayoutPane</component-type>
+    <component-class>org.primefaces.cookbook.component.LayoutPane</component-class>
+</component>
+
+<render-kit>
+    <renderer>
+        <component-family>org.primefaces.cookbook.component</component-family>
+        <renderer-type>org.primefaces.cookbook.component.LayoutRenderer</renderer-type>
+        <renderer-class>org.primefaces.cookbook.component.LayoutRenderer</renderer-class>
+    </renderer>
+    <renderer>
+        <component-family>org.primefaces.cookbook.component</component-family>
+        <renderer-type>org.primefaces.cookbook.component.LayoutPaneRenderer</renderer-type>
+        <renderer-class>org.primefaces.cookbook.component.LayoutPaneRenderer</renderer-class>
+    </renderer>
+</render-kit>

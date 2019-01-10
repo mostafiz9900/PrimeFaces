@@ -1,0 +1,1 @@
+<p:ohlcChart value="#{ohlcChartController.model}" style="height:250px" xaxisAngle="45" yaxisAngle="45" />

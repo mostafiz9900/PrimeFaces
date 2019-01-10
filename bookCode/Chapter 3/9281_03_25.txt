@@ -1,0 +1,4 @@
+public void onDateSelect(DateSelectEvent event) {
+	Date date = event.getDate();
+	MessageUtil.addInfoMessage("selected.date", date);
+}

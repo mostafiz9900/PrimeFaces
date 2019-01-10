@@ -1,0 +1,24 @@
+@ManagedBean
+@ViewScoped
+public class TreeController implements Serializable {
+
+    private TreeNode root;
+
+    public TreeController() {
+        root = new DefaultTreeNode("Root", null);
+
+        TreeNode node0 = 
+            new DefaultTreeNode("Very long not breaking tree node 0", root);
+        node0.setExpanded(true);
+
+        TreeNode node1 = 
+            new DefaultTreeNode("Very long not breaking tree node 1", root);
+        new DefaultTreeNode("Very long not breaking tree node 2", root);
+
+        ...
+    }
+
+    public TreeNode getRoot() {
+        return root;
+    }
+}

@@ -1,0 +1,1 @@
+<link type="text/css" rel="stylesheet" href="/showcase/javax.faces.resource/theme.css.jsf?ln=primefaces-home" />

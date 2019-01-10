@@ -1,0 +1,4 @@
+<p:imageCompare      leftImage="/resources/images/compare/istanbulMap.png"
+	rightImage="/resources/images/compare/istanbulSatellite.png"
+	width="700"
+	height="400" /> 

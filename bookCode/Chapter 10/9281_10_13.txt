@@ -1,0 +1,9 @@
+<p:panel id="panel" header="Blockable Panel" style="height:90px;">
+
+    <h:outputText value="Click on Save to block me."/>
+
+    <p:commandButton id="saveBtn" value="Save" style="margin:10px;"
+                     actionListener="#{blockUIController.doSomething}"/>
+</p:panel>
+
+<p:blockUI block="panel" trigger="saveBtn"/>

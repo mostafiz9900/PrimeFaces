@@ -1,0 +1,5 @@
+<dependency>
+    <groupId>org.primefaces.themes</groupId>
+    <artifactId>cupertino</artifactId>
+    <version>1.0.5</version>
+</dependency>

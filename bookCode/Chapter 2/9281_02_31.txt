@@ -1,0 +1,11 @@
+@FacesConverter("org.primefaces.cookbook.converter.ThemeConverter")
+public class ThemeConverter implements Converter {
+
+    public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        return AvailableThemes.instance().getTheme(value);
+    }
+
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
+        return ((Theme) value).getName();
+    }
+}

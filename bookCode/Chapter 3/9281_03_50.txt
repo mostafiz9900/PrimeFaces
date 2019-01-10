@@ -1,0 +1,6 @@
+<p:inplace label="Countries">
+	<h:selectOneMenu>
+		<f:selectItem itemLabel="Turkey" itemValue="Turkey" />
+		<f:selectItem itemLabel="Germany" itemValue="Germany" />
+	</h:selectOneMenu>
+</p:inplace>

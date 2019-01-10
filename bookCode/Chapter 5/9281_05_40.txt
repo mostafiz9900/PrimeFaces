@@ -1,0 +1,5 @@
+<p:treeTable id="singleSelection" value="#{treeTableController.root}" var="element" selection="#{treeTableController.selectedItem}" selectionMode="single">
+</p:treeTable>
+
+<p:treeTable id="multipleSelection" value="#{treeTableController.root}" var="element" selection="#{treeTableController.selectedItems}" selectionMode="multiple">
+</p:treeTable>

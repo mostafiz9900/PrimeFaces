@@ -1,0 +1,61 @@
+@ManagedBean
+@SessionScoped
+public class UserSettingsController implements Serializable {
+
+    private List<Theme> availableThemes;
+    private Theme currentTheme;
+
+    public UserSettingsController() {
+        currentTheme = AvailableThemes.instance().getTheme("home");
+        availableThemes = AvailableThemes.instance().getThemes();
+    }
+
+    public List<Theme> getAvailableThemes() {
+        return availableThemes;
+    }
+
+    // more getter / setter
+}
+
+public class AvailableThemes implements Serializable {
+
+    private static AvailableThemes INSTANCE = null;
+
+    public static AvailableThemes instance() {
+        if (INSTANCE == null) {
+            INSTANCE = new AvailableThemes();
+        }
+
+        return INSTANCE;
+    }
+
+    private final HashMap<String, Theme> themesAsMap;
+    private final List<Theme> themes;
+
+    private AvailableThemes() {
+        List<String> themeNames = new ArrayList<String>();
+        themeNames.add("afterdark");
+        ... put all other themes ...
+        themeNames.add("vader");
+
+        themesAsMap = new HashMap<String, Theme>();
+        themes = new ArrayList<Theme>();
+
+        for (String themeName : themeNames) {
+            Theme theme = new Theme(
+                themeName,
+                "/resources/images/themeswitcher/" + themeName + ".png");
+
+            themes.add(theme);
+            themesAsMap.put(theme.getName(), theme);
+        }
+    }
+
+    public final List<Theme> getThemes() {
+		return themes;
+    }
+
+    public Theme getTheme(String name) {
+        return themesAsMap.get(name);
+    }
+}

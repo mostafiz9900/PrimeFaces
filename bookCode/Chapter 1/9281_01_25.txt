@@ -1,0 +1,1 @@
+enum type --class ~.domain.Manufacturer enum constant --name Volkswagenenum constant --name Mercedesenum constant --name BMWenum constant --name Audi

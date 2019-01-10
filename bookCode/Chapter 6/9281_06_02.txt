@@ -1,0 +1,11 @@
+<p:growl id="growl"/>
+
+<p:menu overlay="true" trigger="btn" my="left top" at="bottom left">
+    <p:menuitem value="Do something (ajax)"
+        action="#{positionedMenuController.doSomething}" update="growl"/>
+    <p:menuitem value="Do something (non ajax)"
+        action="#{positionedMenuController.doSomething}" ajax="false"/>
+    <p:menuitem value="Navigate" url="http://primefaces.org"/>
+</p:menu>
+
+<p:commandButton id="btn" value="Show dynamic menu" type="button"/>

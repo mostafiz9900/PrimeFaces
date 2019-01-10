@@ -1,0 +1,165 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterTemplate.xhtml">
+	<ui:define name="content">
+		<h:form id="transactionform">
+
+			<p:dataTable id="transactionsummary" var="transaction"
+				value="#{transactionSummaryController.transactionsInfo}"
+				paginator="true" rows="5"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15">
+				<f:facet name="header">
+                Transaction Summary
+       		    </f:facet>
+
+				<p:column sortBy="transactionid" filterBy="transactionid"
+					id="transactionid">
+					<f:facet name="header">
+						<h:outputText value="TransactionID" />
+					</f:facet>
+					<h:outputText value="#{transaction.transactionid}" />
+				</p:column>
+
+
+				<p:column sortBy="transactiontype" filterBy="transactiontype"
+					id="transactiontype">
+					<f:facet name="header">
+						<h:outputText value="Transaction Type" />
+					</f:facet>
+					<h:outputText value="#{transaction.transactiontype}" />
+				</p:column>
+
+				<p:column sortBy="transactiondate" filterBy="transactiondate"
+					id="transactiondate">
+					<f:facet name="header">
+						<h:outputText value="Transaction Date" />
+					</f:facet>
+					<h:outputText value="#{transaction.transactiondate}" />
+				</p:column>
+				<p:column sortBy="paymenttype" filterBy="paymenttype"
+					id="paymenttype">
+					<f:facet name="header">
+						<h:outputText value="Payment Type" />
+					</f:facet>
+					<h:outputText value="#{transaction.paymenttype}" />
+				</p:column>
+
+				<p:column sortBy="status" filterBy="status" id="status">
+					<f:facet name="header">
+						<h:outputText value="Status" />
+					</f:facet>
+					<h:outputText value="#{transaction.status}" />
+				</p:column>
+
+				<p:column sortBy="transactionunitprice" id="transactionunitprice">
+					<f:facet name="header">
+						<h:outputText value="Transaction Unitprice" />
+					</f:facet>
+					<h:outputText value="#{transaction.transactionunitprice}" />
+				</p:column>
+
+				<p:column sortBy="transactionunits" id="transactionunits">
+					<f:facet name="header">
+						<h:outputText value="Transaction Units" />
+					</f:facet>
+					<h:outputText value="#{transaction.transactionunits}" />
+				</p:column>
+				<p:column sortBy="grossamount" id="grossamount">
+					<f:facet name="header">
+						<h:outputText value="Grossamount" />
+					</f:facet>
+					<h:outputText value="#{transaction.grossamount}" />
+				</p:column>
+
+				<p:column sortBy="deductions" id="deductions">
+					<f:facet name="header">
+						<h:outputText value="Deductions" />
+					</f:facet>
+					<h:outputText value="#{transaction.deductions}" />
+				</p:column>
+
+				<p:column sortBy="netamount" id="netamount">
+					<f:facet name="header">
+						<h:outputText value="Net Amount" />
+					</f:facet>
+					<h:outputText value="#{transaction.netamount}" />
+				</p:column>
+
+			</p:dataTable>
+			<p:panel header="Export Transactions Information">
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<h:outputLabel value="Export Options: " for="options" />
+					<p:selectOneRadio id="options"
+						value="#{transactionSummaryController.optionValue}"
+						label="Export Options:">
+						<f:selectItem itemLabel="Export All" itemValue="1" />
+						<f:selectItem itemLabel="Export PageOnly" itemValue="2" />
+						<p:ajax event="change" update="exportOptions"
+							listener="#{transactionSummaryController.changeExportOption}" />
+					</p:selectOneRadio>
+				</h:panelGrid>
+				<p:separator></p:separator>
+				<p:outputPanel id="exportOptions">
+					<h:commandLink>
+						<p:graphicImage value="/images/excel.png" />
+						<p:dataExporter type="xls" target="transactionsummary"
+							postProcessor="#{transactionSummaryController.postProcessXLS}"
+							fileName="TransactionSummary"
+							pageOnly="#{transactionSummaryController.pageOnly}" />
+					</h:commandLink>
+
+					<h:commandLink>
+						<p:graphicImage value="/images/pdf.png" />
+						<p:dataExporter type="pdf" target="transactionsummary"
+							preProcessor="#{transactionSummaryController.preProcessPDF}"
+							postProcessor="#{transactionSummaryController.postProcessPDF}"
+							pageOnly="#{transactionSummaryController.pageOnly}"
+							fileName="TransactionSummary" />
+					</h:commandLink>
+
+					<h:commandLink>
+						<p:graphicImage value="/images/csv.png" />
+						<p:dataExporter type="csv" target="transactionsummary"
+							fileName="TransactionSummary"
+							pageOnly="#{transactionSummaryController.pageOnly}" />
+					</h:commandLink>
+
+					<h:commandLink>
+						<p:graphicImage value="/images/xml.png" />
+						<p:dataExporter type="xml" target="transactionsummary"
+							fileName="TransactionSummary"
+							pageOnly="#{transactionSummaryController.pageOnly}" />
+					</h:commandLink>
+				</p:outputPanel>
+			</p:panel>
+			<p:panel header="Transaction Summary Charts" id="trnsummarycharts">
+				<p:outputPanel style="margin-left:30%">
+					<p:chart type="donut" id="chart" 
+						model="#{transactionSummaryController.donutModel}"
+						style="width:400px;height:300px" widgetVar="$chart" />
+				</p:outputPanel>
+				<p:outputPanel>
+					<p:commandButton value="ExportDonutChart" icon="ui-icon-extlink"
+						ajax="false" onclick="exportDonutChart()"
+						actionListener="#{transactionSummaryController.donutchartBase64Str}">
+						<p:fileDownload value="#{transactionSummaryController.file}" />
+					</p:commandButton>
+				</p:outputPanel>
+			</p:panel>
+			<h:inputHidden id="donut"
+				value="#{transactionSummaryController.base64Str}" />
+
+		</h:form>
+		<script>
+			function exportDonutChart() {
+				// exportAsImage() will return a base64 png encoded string
+				var img1 = PF('$chart').exportAsImage();
+				document.getElementById('transactionform:donut').value = img1.src;
+			}
+		</script>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,9 @@
+public List<String> complete(String input) {
+	List<String> result = new ArrayList<String>();
+
+	for (int i = 0; i < 10; i++) {
+		result.add(input + i);
+	}
+
+	return result;
+}

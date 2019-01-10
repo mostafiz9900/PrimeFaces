@@ -1,0 +1,13 @@
+<h:panelGrid id="counter" columns="2" style="font-weight:bold;">
+    <h:outputText value="Counter"/>
+    <h:outputText value="#{requestContextController.counter}"/>
+</h:panelGrid>
+
+<p>Some text</p>
+... 
+<p>Some text</p>      
+
+<p:commandButton value="Increment counter"
+                 process="@form" update="counter"
+                 actionListener="#{requestContextController.incrementWithScroll}"
+                 style="margin:10px;"/>

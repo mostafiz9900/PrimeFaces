@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pc="http://primefaces.org/ui/cookbook">
+<f:view contentType="text/html" locale="en">
+    <h:head title="PrimeFaces Cookbook - Layout Component">
+        ...
+    </h:head>
+    <h:body>
+        <pc:layout id="fpl" widgetVar="fullLayoutWidget"
+                   options="#{showcaseLayout.layoutOptions}">
+            <pc:layoutPane position="north">
+                North content
+            </pc:layoutPane>
+
+            <h:form id="mainForm" prependId="false">
+                <pc:layoutPane position="center">
+                    Center content
+                </pc:layoutPane>
+
+                <pc:layoutPane position="west">
+                    <f:facet name="header">
+                        West header
+                    </f:facet>
+                    West content
+                </pc:layoutPane>
+
+                <pc:layoutPane position="east">
+                    <!-- nested layout -->
+                    <pc:layoutPane position="center">
+                        <f:facet name="header">
+                            East-Center header
+                        </f:facet>
+                        East-Center content
+                    </pc:layoutPane>
+                    <pc:layoutPane position="south">
+                        East-South content
+                    </pc:layoutPane>
+                </pc:layoutPane>
+
+                <pc:layoutPane position="south">
+                    South content
+                </pc:layoutPane>
+            </h:form>
+
+        </pc:layout>
+    </h:body>
+</f:view>
+</html>

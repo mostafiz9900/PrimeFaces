@@ -1,0 +1,1 @@
+<p:commandButton action="home.xhtml?faces-redirect=true" value="Go Home"/>

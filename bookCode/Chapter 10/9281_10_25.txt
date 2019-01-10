@@ -1,0 +1,6 @@
+<p:messages severity="error" showDetail="true"/>
+<p:growl severity="info, warn" showDetail="true"/>
+<p:growl showDetail="true"/>
+
+<p:commandButton value="Generate error message" update="@form"
+        action="#{targetableMessagesController.addErrorMessage}"/>

@@ -1,0 +1,3 @@
+<p:ajax event="toggle" listener="#{layoutController.handleToggle}" update="growl" />
+<p:ajax event="close" listener="#{layoutController.handleClose}" update="growl" />
+<p:ajax event="resize" listener="#{layoutController.handleResize}" update="growl" />

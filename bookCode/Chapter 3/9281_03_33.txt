@@ -1,0 +1,3 @@
+<p:spinner value="#{spinnerController.intValue}" prefix="$" />
+
+<p:spinner value="#{spinnerController.intValue}" suffix="%" />

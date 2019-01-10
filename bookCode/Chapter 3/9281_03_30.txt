@@ -1,0 +1,1 @@
+<p:calendar id="rangeTimeCalendar" value="#{calendarController.date}" pattern="dd/MM/yyyy HH:mm:ss" minHour="3" maxHour="5" minMinute="0" maxMinute="30" minSecond="45" maxSecond="55"/>

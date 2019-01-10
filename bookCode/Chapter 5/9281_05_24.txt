@@ -1,0 +1,5 @@
+<p:pickList id="withCaption" value="#{pickListController.countries}"
+	var="country" itemLabel="#{country}" itemValue="#{country}">
+	<f:facet name="sourceCaption">Available</f:facet>
+	<f:facet name="targetCaption">Selected</f:facet>
+</p:pickList>

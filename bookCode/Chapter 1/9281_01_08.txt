@@ -1,0 +1,6 @@
+<h:form id="form1">
+   <p:commandButton update=":form2:display" action="#{basicPPRController.updateValue}" value="Update" />
+</h:form>
+<h:form id="form1">
+   <h:outputText id="display" value="#{basicPPRController.value}"/>
+</h:form>

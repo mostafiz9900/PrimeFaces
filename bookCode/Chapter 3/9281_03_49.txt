@@ -1,0 +1,3 @@
+<p:inplace emptyLabel="My Empty Input Field">
+	<h:inputText value="" />
+</p:inplace>

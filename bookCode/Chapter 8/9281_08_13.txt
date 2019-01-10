@@ -1,0 +1,41 @@
+@ManagedBean
+@ViewScoped
+public class IntegrationDragDrop implements Serializable {
+
+    private List<Document> availableDocs = new ArrayList<Document>();
+    private List<Document> deletedDocs = new ArrayList<Document>();
+
+    @PostConstruct
+    public void initialize() {
+        availableDocs.add(new Document(
+            "Perl script", 120, "Sara Schmidt", getCreationDate(), "perl"));
+        ...
+        availableDocs.add(new Document(
+            "Search masks configuration", 33, "Andrew Andreev", getCreationDate(), "xml"));
+    }
+
+    public List<Document> getAvailableDocs() {
+        return availableDocs;
+    }
+
+    public List<Document> getDeletedDocs() {
+        return deletedDocs;
+    }
+
+    public void onDocumentDrop(DragDropEvent ddEvent) {
+        Document doc = (Document) ddEvent.getData();
+
+        deletedDocs.add(doc);
+        availableDocs.remove(doc);
+    }
+
+    private Date getCreationDate() {
+        Random random = new Random();
+        int day = random.nextInt(30);
+        int month = random.nextInt(Calendar.DECEMBER + 1);
+        int year = random.nextInt(2012);
+        GregorianCalendar calendar = new GregorianCalendar(year, month, day);
+
+        return calendar.getTime();
+    }
+}

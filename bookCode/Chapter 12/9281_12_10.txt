@@ -1,0 +1,7 @@
+<pe:inputNumber  value="#{inputNumberController.input6}" symbol="$ "
+        validatorMessage="The value must be 50.00 or greater">
+        <f:validateDoubleRange minimum="50"/>
+</pe:inputNumber>
+
+<pe:inputNumber  value="#{inputNumberController.distance}"
+        symbol="meters " converter="inputNumberConverter"/>

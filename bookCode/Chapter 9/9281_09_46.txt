@@ -1,0 +1,4 @@
+MapModel circleModel = new DefaultMapModel();
+Circle circle = new Circle(new LatLng(41.073399, 29.051971), 50000);
+
+circleModel.addOverlay(circle);

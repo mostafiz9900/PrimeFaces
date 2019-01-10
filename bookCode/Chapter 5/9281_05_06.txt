@@ -1,0 +1,8 @@
+<p:dataTable id="filtering" var="car" value="#{dataTableController.cars}">
+	<p:column headerText="Year" filterBy="#{car.year}">
+		<h:outputText value="#{car.year}" />
+	</p:column>
+	<p:column headerText="Name" filterBy="#{car.name}">
+		<h:outputText value="#{car.name}" />
+	</p:column>
+</p:dataTable>

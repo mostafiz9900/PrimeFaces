@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:tabView>
+            <p:tab title="Mostafizur">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name"></h:outputLabel>
+                    <h:outputText value="Mostafizur Rahman"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+            <p:tab title="Mostafizur2">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name2"></h:outputLabel>
+                    <h:outputText value="Mahabub Rahman"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+            <p:tab title="Mostafizur3">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name3"></h:outputLabel>
+                    <h:outputText value="Sofiqul"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+        </p:tabView>
+        <h3>Scrollable</h3>
+        <p:tabView scrollable="true">
+            <p:tab title="Tab 1">Tab 1 Content</p:tab>
+            <p:tab title="Tab 2">Tab 2 Content</p:tab>
+            <p:tab title="Tab 3">Tab 3 Content</p:tab>
+            <p:tab title="Tab 4">Tab 4 Content</p:tab>
+            <p:tab title="Tab 5">Tab 5 Content</p:tab>
+            <p:tab title="Tab 6">Tab 6 Content</p:tab>
+            <p:tab title="Tab 7">Tab 7 Content</p:tab>
+            <p:tab title="Tab 8">Tab 8 Content</p:tab>
+            <p:tab title="Tab 9">Tab 9 Content</p:tab>
+            <p:tab title="Tab 10">Tab 10 Content</p:tab>
+            <p:tab title="Tab 11">Tab 11 Content</p:tab>
+            <p:tab title="Tab 12">Tab 12 Content</p:tab>
+            <p:tab title="Tab 13">Tab 13 Content</p:tab>
+            <p:tab title="Tab 14">Tab 14 Content</p:tab>
+            <p:tab title="Tab 15">Tab 15 Content</p:tab>
+            <p:tab title="Tab 16">Tab 16 Content</p:tab>
+            <p:tab title="Tab 17">Tab 17 Content</p:tab>
+            <p:tab title="Tab 18">Tab 18 Content</p:tab>
+            <p:tab title="Tab 19">Tab 19 Content</p:tab>
+            <p:tab title="Tab 20">Tab 20 Content</p:tab>
+            <p:tab title="Tab 21">Tab 21 Content</p:tab>
+            <p:tab title="Tab 22">Tab 22 Content</p:tab>
+            <p:tab title="Tab 23">Tab 23 Content</p:tab>
+            <p:tab title="Tab 24">Tab 24 Content</p:tab>
+            <p:tab title="Tab 25">Tab 25 Content</p:tab>                
+        </p:tabView>
+
+        <p:tabView orientation="left">
+            <p:tab title="Mostafizur">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name"></h:outputLabel>
+                    <h:outputText value="Mostafizur Rahman"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+            <p:tab title="Mostafizur2">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name2"></h:outputLabel>
+                    <h:outputText value="Mahabub Rahman"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+            <p:tab title="Mostafizur3">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name3"></h:outputLabel>
+                    <h:outputText value="Sofiqul"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+        </p:tabView>
+        
+        <p:separator/>
+        <h> Action </h>
+        <p:tabView>
+            <p:tab title="mosta">
+               <f:facet name="actions">
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" icon="pi pi-save"/>
+                    <p:menuitem value="Update" icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                    <p:separator />
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                </p:menuButton>
+                 
+                <p:menuButton value="Settings">
+                    <p:menuitem value="Toggle" url="#" icon="pi pi-clone" />
+                    <p:menuitem value="Remove" url="#" icon="pi pi-times" />
+                </p:menuButton>
+            </f:facet>
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name"></h:outputLabel>
+                    <h:outputText value="Mostafizur Rahman"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+            <p:tab title="Mostafizur2">
+                <f:facet name="actions">
+                    <p:button value="Process" />
+                </f:facet>
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputLabel value="Name2"></h:outputLabel>
+                    <h:outputText value="Mahabub Rahman"></h:outputText>
+                </h:panelGrid>
+            </p:tab>
+        </p:tabView>
+    </h:body>
+</html>
+

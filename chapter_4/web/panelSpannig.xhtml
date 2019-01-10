@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <p:panelGrid style="margin-top: 20px">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="6">Time Chart</p:column>
+                </p:row>
+                <p:row>
+                    <p:column/>
+                    <p:column>Monday</p:column>
+                    <p:column>TuesDay</p:column>
+                    <p:column>Wednesday</p:column>
+                    <p:column>Thursday</p:column>
+                    <p:column>Friday</p:column>
+                </p:row>
+            </f:facet>
+            <p:row>
+                <p:column rowspan="6">Hours</p:column>
+                <p:column >Science</p:column>
+                <p:column >Math</p:column>
+                <p:column rowspan="2">Project</p:column>
+                <p:column >Math</p:column>
+                <p:column >Arts</p:column>
+                
+            </p:row>
+            <p:row>
+                <p:column>Social</p:column>
+                <p:column>History</p:column>
+                <p:column>Sports</p:column>
+                <p:column>Math</p:column>
+            </p:row>
+            
+            <p:row>
+                <p:column colspan="6" style="text-align: center">Lunch</p:column>
+                
+            </p:row>
+            <p:row>
+                <p:column>Math</p:column>
+                <p:column>History</p:column>
+                <p:column>English</p:column>
+                <p:column>Science</p:column>
+                <p:column>Arts</p:column>
+            </p:row>
+            <f:facet name="footer">
+                <p:row>
+                    <p:column colspan="6">Duration 40 minutes</p:column>
+                </p:row>
+            </f:facet>
+        </p:panelGrid>
+    </h:body>
+</html>
+

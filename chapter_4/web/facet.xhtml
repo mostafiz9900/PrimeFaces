@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <p:panel header="Header" footer="Footer">
+            
+        
+        <f:facet name="options">
+            <p:menu>
+                <p:submenu label="Settings">
+                    <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="panel.toggle()"></p:menuitem>
+                    <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"></p:menuitem>
+                    <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"></p:menuitem>
+                    <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"></p:menuitem>
+                </p:submenu>
+            </p:menu>
+        </f:facet>
+             <h:outputText value="I am java programmer"></h:outputText>
+            </p:panel>
+       
+    </h:body>
+</html>
+

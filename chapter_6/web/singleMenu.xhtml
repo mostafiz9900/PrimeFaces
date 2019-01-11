@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form>
+            <p:growl id="messages" showDetail="false"/>
+        <p:menu>
+            <p:submenu label="JavaScript Labraries">
+                <p:menuitem value="JQuery" url="#"></p:menuitem>
+                <p:menuitem value="JQuery" url="#"></p:menuitem>
+                <p:menuitem value="JQuery" url="#"></p:menuitem>
+            </p:submenu>
+            
+             <p:submenu label=" Labraries55">
+                 <p:menuitem value="save" url="#" icon="ui-icon-save"></p:menuitem>
+                 <p:menuitem value="Delete" url="#" icon="ui-icon-times"></p:menuitem>
+                 <p:menuitem value="Update" url="#" icon="ui-icon-refresh"></p:menuitem>
+            </p:submenu>
+        </p:menu>
+        
+          <h3>Toggleable</h3>
+    <p:menu>
+        <p:submenu label="Ajax">
+            <p:menuitem value="Save" action="#" update="messages" icon="pi pi-save" />
+            <p:menuitem value="Update" action="#" update="messages" icon="pi pi-refresh"/>
+        </p:submenu>
+        <p:submenu label="Non-Ajax">
+            <p:menuitem value="Delete" action="#" update="messages" ajax="false" icon="pi pi-times"/>
+        </p:submenu>
+        <p:submenu label="Navigations">
+            <p:menuitem value="External" url="#" icon="pi pi-home"/>
+            <p:menuitem value="Internal" icon="pi pi-star"/>
+        </p:submenu>
+    </p:menu>
+          </h:form>
+    </h:body>
+</html>
+

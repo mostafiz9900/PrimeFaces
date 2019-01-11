@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form>
+             <p:treeTable value="#{ttBasicView.root}" var="document">
+                            <f:facet name="header">
+                                Document Viewer
+                            </f:facet>
+                            <p:column headerText="Name">
+                                <h:outputText value="#{document.name}"/>
+                            </p:column>
+                            <p:column headerText="Size">
+                                <h:outputText value="#{document.size}"/>
+                            </p:column>
+                            <p:column headerText="Type">
+                                <h:outputText value="#{document.type}"/>
+                            </p:column>
+                            <p:column style="width: 24px">
+                                <p:commandLink update=":form:documentPanel" oncomplete="PF('documentDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search">
+                                    <f:setPropertyActionListener value="#{document}" target="#{ttBasicView.selectedDocument}"/>
+                                </p:commandLink>
+                            </p:column>
+                        </p:treeTable>
+        </h:form>
+    </h:body>
+</html>
+

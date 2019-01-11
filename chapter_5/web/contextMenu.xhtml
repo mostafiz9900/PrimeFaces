@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form>              
+    <p:growl id="messages" showDetail="true"/>
+ 
+    <p:contextMenu>
+        <p:menuitem value="Save" action="#{menuView.save}" update="messages" icon="pi pi-save"/>
+        <p:menuitem value="Update" action="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
+        <p:menuitem value="Delete" action="#{menuView.delete}" ajax="false" icon="pi pi-times"/>
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+    </p:contextMenu>
+</h:form>
+    </h:body>
+</html>
+

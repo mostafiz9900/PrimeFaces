@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form>
+            <p:growl id="messages" />
+            <p:menubar>
+                <p:submenu label="File" icon="ui-icon-file">
+                    <p:submenu label="New" icon="ui-icon-plus">
+                        <p:menuitem value="Project" url="#"></p:menuitem>
+                        <p:menuitem value="Other" url="#"></p:menuitem>
+                    </p:submenu>
+                    <p:menuitem value="Open" url="#" />
+                    <p:separator />
+                    <p:menuitem value="Quit" url="#" />
+                </p:submenu>
+                <p:submenu label="Edit" icon="pi pi-pencil">
+                    <p:menuitem value="Undo" url="#" icon="pi pi-angle-double-left"/>
+                    <p:menuitem value="Redo" url="#" icon="pi pi-angle-double-right"/>
+                </p:submenu>
+                <p:submenu label="Help" icon="fa-neuter">
+                    <p:menuitem value="Contents" url="#"></p:menuitem>
+                    <p:submenu label="Search" icon=" fa-spinne">
+                        <p:submenu label="Text">
+                            <p:menuitem value="Workplase" url="#"/>
+                            <p:menuitem value="Workplase" url="#"/>
+                        </p:submenu>
+                        <p:menuitem value="File" url="#"/>
+                    </p:submenu>
+                    
+                   
+                </p:submenu>
+                 <p:submenu label="Action" icon="ui-icon-cog">
+                        <p:submenu label="Ajsx" >
+                            <p:menuitem value="Save" icon="ui-icon-save"/>
+                            <p:menuitem value="Update" icon="ui-icon-refresh"/>
+                        </p:submenu>
+                         <p:submenu label="Non-Ajsx" >
+                            <p:menuitem value="Delete" icon="ui-icon-folder-collapsed"/>
+                           
+                        </p:submenu>
+                     <p:menuitem value="Quit" url="#" icon="ui-icon-closethick"/>
+                    </p:submenu>
+                
+            </p:menubar>
+        </h:form>
+    </h:body>
+</html>
+

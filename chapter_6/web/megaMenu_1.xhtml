@@ -12,8 +12,26 @@
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
 
+        <p:megaMenu>
+            <p:submenu label="Country" icon="ui-icon-person">
+                <p:column>
+                    <p:submenu label="Bangladesh">
+                        <p:menuitem value="Dhaka" url="#"/>
+                        <p:menuitem value="Gagipur" url="#"/>
+                    </p:submenu>
+                    <p:submenu label="Tangail">
+                        <p:menuitem value="Gopalpur" url="#" />
+                        <p:menuitem value="Bhuyapur" url="#" />
+                        <p:menuitem value="Gatail" url="#" />
+                    </p:submenu>
+                     <p:submenu label="Dhaka">
+                        <p:menuitem value="Mirpur" url="#"/>
+                        <p:menuitem value="Shemoli" url="#" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+        </p:megaMenu>
 
-       
     </h:body>
 </html>
 

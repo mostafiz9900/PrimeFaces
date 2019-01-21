@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .hh{
+                
+                background-color: pink;
+                width: 50%;
+                margin: 0 auto;
+                   
+            }
+        </style>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2" styleClass="hh">
+                    <f:facet name="header">
+                        <h:outputLabel value="Data Display"></h:outputLabel>
+                    </f:facet>
+                    <h:outputLabel>Id :</h:outputLabel>
+                    <h:inputText value="#{studentBean.student.id}"></h:inputText>
+                    
+                    <h:outputLabel>Name :</h:outputLabel>
+                    <h:inputText value="#{studentBean.student.name}"></h:inputText>
+                    
+                    <h:outputLabel>Gender :</h:outputLabel>
+                    <h:selectOneRadio value="#{studentBean.student.gender}">
+                        <f:selectItem itemValue="Mail" itemLabel="Mail"></f:selectItem>
+                        <f:selectItem itemValue="Femail" itemLabel="Femail"></f:selectItem>
+                    </h:selectOneRadio>
+                    
+                    <h:outputLabel>Round :</h:outputLabel>
+                     <h:selectOneMenu value="#{studentBean.student.round}">
+                        <f:selectItem itemValue="" itemLabel="Select A Round"></f:selectItem>
+                        <f:selectItem itemValue="37" itemLabel="Round-37"></f:selectItem>
+                        <f:selectItem itemValue="38" itemLabel="Round-38"></f:selectItem>
+                        <f:selectItem itemValue="39" itemLabel="Round-39"></f:selectItem>
+                       
+                    </h:selectOneMenu>
+                    
+                     <h:outputLabel>Subject :</h:outputLabel>
+                     <h:selectManyCheckbox value="#{studentBean.subjectCompleted}">
+                        <f:selectItem itemValue="java" itemLabel="java"></f:selectItem>
+                        <f:selectItem itemValue="ppt" itemLabel="ppt"></f:selectItem>
+                        <f:selectItem itemValue="html" itemLabel="html"></f:selectItem>
+                        <f:selectItem itemValue="39" itemLabel="Round-39"></f:selectItem>
+                       
+                    </h:selectManyCheckbox>
+                     
+                      
+                    
+                    <h:outputLabel>Date :</h:outputLabel>
+                    <h:inputText value="#{studentBean.student.regDate}"></h:inputText>
+                    
+                    <h:outputLabel>Click</h:outputLabel>
+                    <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+    </h:body>
+</html>
+

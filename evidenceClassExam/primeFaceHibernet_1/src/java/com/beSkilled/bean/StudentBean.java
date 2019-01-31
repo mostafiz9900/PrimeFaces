@@ -40,6 +40,9 @@ public class StudentBean {
         service.delete(student);
 
     }
+    public void reset(){
+    student=new Student();
+    }
 
     public StudentService getService() {
         return service;

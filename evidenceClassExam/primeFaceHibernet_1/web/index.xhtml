@@ -6,6 +6,13 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <style>
+            .hh{
+                background-color: pink;
+                margin: 0 auto;
+                
+            }
+        </style>
     </h:head>
     <h:body>
         Hello from Facelets
@@ -13,11 +20,58 @@
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
         <f:view>
             <h:form>
-                <h:panelGrid>
-                    
+                <h:panelGrid columns="2" styleClass="hh">
+                    <f:facet name="header">
+                        <h:outputLabel value="Data Display"></h:outputLabel>
+                    </f:facet>
+                    <h:outputLabel>Name: </h:outputLabel>
+                    <h:inputText value="#{studentBean.student.name}"></h:inputText>
+
+                    <h:outputLabel>Gender :  </h:outputLabel>
+                    <h:selectOneRadio value="#{studentBean.student.gender}">
+                        <f:selectItem  itemValue="mail" itemLabel="Mail"></f:selectItem>
+                        <f:selectItem  itemValue="femail" itemLabel="Femail"></f:selectItem>
+                    </h:selectOneRadio>
+
+                    <h:outputLabel>Subject :  </h:outputLabel>
+                    <h:selectManyCheckbox value="#{studentBean.completCourse}">
+                        <f:selectItem  itemValue="html" itemLabel="HTML"></f:selectItem>
+                        <f:selectItem  itemValue="java" itemLabel="JAVA"></f:selectItem>
+                        <f:selectItem  itemValue="it" itemLabel="IT"></f:selectItem>
+                    </h:selectManyCheckbox>
+
+                    <h:outputLabel>Round :  </h:outputLabel>
+                    <h:selectOneMenu value="#{studentBean.student.round}">
+                        <f:selectItem  itemValue="" itemLabel="Select A Round"></f:selectItem>
+                        <f:selectItem  itemValue="35" itemLabel="Round-35"></f:selectItem>
+                        <f:selectItem  itemValue="36" itemLabel="Round-36"></f:selectItem>
+                        <f:selectItem  itemValue="37" itemLabel="Round-37"></f:selectItem>
+                        <f:selectItem  itemValue="38" itemLabel="Round-38"></f:selectItem>
+
+                    </h:selectOneMenu>
+                    <h:commandButton action="#{studentBean.save()}" value="Save"></h:commandButton>
+                    <h:commandButton action="#{studentBean.reset()}" value="Reset"></h:commandButton>
+                   
                 </h:panelGrid>
             </h:form>
         </f:view>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="Id">
+                <h:outputText value="#{s.id}"></h:outputText>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"></h:outputText>
+            </p:column>
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"></h:outputText>
+            </p:column>
+            <p:column headerText="Subject">
+                <h:outputText value="#{s.subject}"></h:outputText>
+            </p:column>
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"></h:outputText>
+            </p:column>
+        </p:dataTable>
     </h:body>
 </html>
 

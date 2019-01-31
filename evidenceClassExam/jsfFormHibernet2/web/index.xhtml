@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .hh{
+                background-color: gray;
+                margin: 0 auto;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2" styleClass="hh">
+                    <f:facet name="header">
+                        <h:outputLabel value="Data Display Student Form"/>
+                    </f:facet>
+                    <h:outputLabel>Name : </h:outputLabel>
+                    <h:inputText value="#{studentBean.student.name}"></h:inputText>
+                    
+                     <h:outputLabel>Gender : </h:outputLabel>
+                     <h:selectOneRadio value="#{studentBean.student.gender}">
+                         <f:selectItem itemValue="Mail" itemLabel="Mail"></f:selectItem>
+                         <f:selectItem itemValue="Femail" itemLabel="Femail"></f:selectItem>
+                     </h:selectOneRadio>
+                     
+                      <h:outputLabel>Round : </h:outputLabel>
+                      <h:selectOneMenu value="#{studentBean.student.round}">
+                         <f:selectItem itemValue="" itemLabel="Select A Round"></f:selectItem>
+                         <f:selectItem itemValue="37" itemLabel="Round-37"></f:selectItem>
+                         <f:selectItem itemValue="38" itemLabel="Round-38"></f:selectItem>
+                         <f:selectItem itemValue="39" itemLabel="Round-39"></f:selectItem>
+                         <f:selectItem itemValue="40" itemLabel="Round-40"></f:selectItem>
+                     </h:selectOneMenu>
+                       <h:outputLabel>Subject : </h:outputLabel>
+                       <h:selectManyCheckbox value="#{studentBean.courseCompleted}">
+                         <f:selectItem itemValue="java" itemLabel="java"></f:selectItem>
+                         <f:selectItem itemValue="js" itemLabel="js"></f:selectItem>
+                         <f:selectItem itemValue="primeface" itemLabel="primeface"></f:selectItem>
+                         <f:selectItem itemValue="mysql" itemLabel="mqsql"></f:selectItem>
+                       
+                     </h:selectManyCheckbox>
+                       <h:commandButton action="#{studentBean.save()}" value="Save"></h:commandButton>
+                       <h:commandButton action="#{studentBean.reset()}" value="Reset"></h:commandButton>
+                </h:panelGrid> 
+            </h:form>
+           
+        </f:view>
+         <p:separator/>
+            <p:dataTable var="st" value="#{studentBean.list}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{st.id}"></h:outputText>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{st.name}"></h:outputText>
+                </p:column>
+                <p:column headerText="Gender">
+                    <h:outputText value="#{st.gender}"></h:outputText>
+                </p:column>
+                <p:column headerText="Round">
+                    <h:outputText value="#{st.round}"></h:outputText>
+                </p:column>
+                <p:column headerText="Subject">
+                    <h:outputText value="#{st.subject}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+         <p:button outcome="index" value="Insert"></p:button>
+         <p:button outcome="update" value="Edit"></p:button>
+         <p:button outcome="delete" value="Delete"></p:button>
+    </h:body>
+</html>
+

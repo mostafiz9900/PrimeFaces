@@ -26,6 +26,7 @@ public class StudentService {
         session.saveOrUpdate(student);
         System.out.println("Insert data success");
         tr.commit();
+        session.close();
     }
 
     public static void delete(Student student) {
@@ -35,6 +36,7 @@ public class StudentService {
         session.delete(student);
         System.out.println("Delete data success");
         tr.commit();
+        session.close();
     }
 
     public static List<Student> getStudentList() {

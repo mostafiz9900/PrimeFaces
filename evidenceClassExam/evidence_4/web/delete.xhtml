@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .h{
+                background-color: violet;
+                margin: 0 auto;
+                width: 600px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+       
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="3" styleClass="h">
+                    <f:facet name="header">
+                        <p:outputLabel value="Data Display"/>
+                    </f:facet>
+                     <p:outputLabel> Id </p:outputLabel>
+                     <p:inputText value="#{studentBean.student.id}" id="id" required="true" requiredMessage="Enter your id...."></p:inputText>
+                    <p:message for="id"/>
+                    
+                    
+                    
+                    <p:commandButton action="#{studentBean.save()}" value="Save"/>
+                    <p:commandButton action="#{studentBean.reset()}" value="Reset"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+        <p:dataTable var="data" value="#{studentBean.lists}">
+            <p:column headerText="Id">
+                <h:outputText value="#{data.id}"/>
+            </p:column>
+            
+             <p:column headerText="Name">
+                 <h:outputText value="#{data.name}"/>
+            </p:column>
+             <p:column headerText="Gender">
+                 <h:outputText value="#{data.gender}"/>
+            </p:column>
+             <p:column headerText="Round">
+                 <h:outputText value="#{data.round}"/>
+            </p:column>
+             <p:column headerText="Subject">
+                 <h:outputText value="#{data.subject}"/>
+            </p:column>
+            
+        </p:dataTable>
+        <p:button outcome="index" value="Insert"/>
+        <p:button outcome="update" value="Update"/>
+        <p:button outcome="delete" value="Delete"/>
+    </h:body>
+</html>
+

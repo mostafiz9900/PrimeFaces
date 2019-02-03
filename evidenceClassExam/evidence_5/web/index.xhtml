@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+
+       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .hh{
+                background-color: gray;
+                margin: 0 auto;
+                width: 600px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="3" styleClass="hh">
+                    <f:facet name="header">
+                        <p:outputLabel value="Data Display"/>
+                    </f:facet>
+                    <p:outputLabel>Name : </p:outputLabel>
+                    <p:inputText value="#{studentBean.student.name}" id="name" required="true" requiredMessage="Enter Name.."></p:inputText>
+                    <p:message for="name"/>
+
+                    <p:outputLabel>Gender : </p:outputLabel>
+                    <p:selectOneRadio value="#{studentBean.student.name}" id="gender" required="true" requiredMessage="Select a gender">
+                        <f:selectItem itemValue="mail" itemLabel="Mail"></f:selectItem>
+                        <f:selectItem itemValue="femail" itemLabel="Femail"></f:selectItem>
+                    </p:selectOneRadio>
+                    <p:message for="gender"/>
+
+                    <p:outputLabel>Round : </p:outputLabel>
+                    <p:selectOneMenu value="#{studentBean.student.round}" id="round" required="true" requiredMessage="Select A round">
+                        <f:selectItem itemValue="" itemLabel="Select A Round"></f:selectItem>
+                        <f:selectItem itemValue="Round-35" itemLabel="Round_35"></f:selectItem>
+                        <f:selectItem itemValue="Round-36" itemLabel="Round_36"></f:selectItem>
+                        <f:selectItem itemValue="Round-37" itemLabel="Round_37"></f:selectItem>
+                    </p:selectOneMenu>
+                    <p:message for="round"/>
+
+                    <p:outputLabel>Subject : </p:outputLabel>
+                    <h:selectManyCheckbox value="#{studentBean.completCourse}" >
+                        <f:selectItem itemValue="JAVA" itemLabel="JAVA"></f:selectItem>
+                        <f:selectItem itemValue="HTML" itemLabel="HTML"></f:selectItem>
+                        <f:selectItem itemValue="UML" itemLabel="UML"></f:selectItem>
+                        <f:selectItem itemValue="SPRING" itemLabel="SPRING"></f:selectItem>
+
+                    </h:selectManyCheckbox>
+                   
+
+
+                    <h:commandButton action="#{studentBean.save()}" value="Save"></h:commandButton>
+                    <h:commandButton action="#{studentBean.reset()}" value="Reset"></h:commandButton>
+
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+        <p:dataTable var="sub" value="#{studentBean.lists}">
+            <p:column headerText="Id">
+                <h:outputText value="#{sub.id}"/>
+            </p:column>
+
+            <p:column headerText="Name">
+                <h:outputText value="#{sub.name}"/>
+            </p:column>
+            <p:column headerText="Gender">
+                <h:outputText value="#{sub.gender}"/>
+            </p:column>
+
+            <p:column headerText="Round">
+                <h:outputText value="#{sub.round}"/>
+            </p:column>
+
+            <p:column headerText="Subject">
+                <h:outputText value="#{sub.subject}"/>
+            </p:column>
+
+        </p:dataTable>
+        <p:button outcome="index" value="Insert"></p:button>
+        <p:button outcome="update" value="Update"></p:button>
+        <p:button outcome="delete" value="Delete"></p:button>
+    </h:body>
+</html>
+
